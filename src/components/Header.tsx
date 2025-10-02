@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoEpa from "@/assets/logo-epa.png";
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
 
   const scrollToSection = (sectionId: string) => {
@@ -15,14 +16,15 @@ const Header = () => {
 
   const handleMenuClick = (sectionId: string, path?: string) => {
     if (path) {
-      // Navega para outra página
-      window.location.href = path;
+      // Navega para outra página usando React Router
+      navigate(path);
     } else if (isHomePage) {
       // Scroll na mesma página
       scrollToSection(sectionId);
     } else {
       // Volta para home e depois faz scroll
-      window.location.href = `/#${sectionId}`;
+      navigate('/');
+      setTimeout(() => scrollToSection(sectionId), 100);
     }
   };
 

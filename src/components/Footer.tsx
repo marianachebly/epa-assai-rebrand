@@ -2,7 +2,7 @@ import logoEpa from "@/assets/logo-epa.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-primary to-primary/95 text-primary-foreground py-12">
+    <footer className="bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground py-12">
       <div className="container mx-auto px-4">
         <div className="text-center space-y-4">
           <img src={logoEpa} alt="EPA" className="h-16 w-auto mx-auto" />

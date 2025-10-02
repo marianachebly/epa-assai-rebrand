@@ -1,7 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
+import personWithPhone from "@/assets/person-with-phone.jpg";
 
 const HeroSection = () => {
   return (
@@ -31,58 +29,15 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="bg-secondary rounded-3xl p-6 shadow-2xl">
-            <h2 className="text-2xl font-black text-secondary-foreground mb-6 text-center">
-              Cadastre-se na promoção!
-            </h2>
-            
-            <form className="space-y-4">
-              <div>
-                <Label htmlFor="nome">Nome completo*</Label>
-                <Input id="nome" placeholder="Digite seu nome" className="bg-background" />
-              </div>
-              
-              <div>
-                <Label htmlFor="cpf">CPF*</Label>
-                <Input id="cpf" placeholder="000.000.000-00" className="bg-background" />
-              </div>
-              
-              <div>
-                <Label htmlFor="email">E-mail*</Label>
-                <Input id="email" type="email" placeholder="seuemail@email.com" className="bg-background" />
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="ddd">DDD*</Label>
-                  <Input id="ddd" placeholder="00" className="bg-background" />
-                </div>
-                <div>
-                  <Label htmlFor="telefone">Nº Celular*</Label>
-                  <Input id="telefone" placeholder="00000-0000" className="bg-background" />
-                </div>
-              </div>
-              
-              <div>
-                <Label htmlFor="email-confirm">Confirmar e-mail*</Label>
-                <Input id="email-confirm" type="email" placeholder="seuemail@email.com" className="bg-background" />
-              </div>
-              
-              <div className="flex items-start gap-2">
-                <Checkbox id="terms" />
-                <label htmlFor="terms" className="text-xs text-secondary-foreground leading-tight">
-                  Li e aceito os termos e condições do regulamento da promoção conforme descrito no site.
-                </label>
-              </div>
-              
-              <Button type="submit" variant="default" className="w-full" size="lg">
-                QUERO PARTICIPAR!
-              </Button>
-              
-              <p className="text-center text-xs text-secondary-foreground">
-                Já cadastrado? <a href="#" className="underline font-bold">CLIQUE E CADASTRE SEU CUPOM</a>
-              </p>
-            </form>
+          <div className="flex flex-col items-center space-y-6">
+            <img 
+              src={personWithPhone} 
+              alt="Pessoa segurando celular para cadastro" 
+              className="w-full max-w-md rounded-3xl shadow-2xl"
+            />
+            <Button variant="hero" size="lg" className="text-xl px-12 py-8">
+              CADASTRE-SE AGORA E CONCORRA
+            </Button>
           </div>
         </div>
       </div>

@@ -6,7 +6,6 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import logoEpa from "@/assets/logo-epa.png";
@@ -80,7 +79,7 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="bg-background">
               <SheetHeader>
-                <SheetTitle className="text-primary">Menu</SheetTitle>
+                <img src={logoEpa} alt="EPA" className="h-16 w-auto mx-auto mb-4" />
               </SheetHeader>
               <div className="flex flex-col gap-4 mt-8">
                 <button 
@@ -113,7 +112,7 @@ const Header = () => {
                 >
                   GANHADORES
                 </button>
-                <Button variant="default" size="sm" className="mt-4">
+                <Button variant="default" size="sm" className="mt-4" onClick={() => setOpen(false)}>
                   Meus números da sorte
                 </Button>
               </div>

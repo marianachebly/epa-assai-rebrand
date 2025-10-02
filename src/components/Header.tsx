@@ -65,10 +65,15 @@ const Header = () => {
             </div>
           </div>
           
-          {/* Desktop Button */}
-          <Button variant="default" size="sm" className="hidden md:inline-flex">
-            Meus números da sorte
-          </Button>
+          {/* Desktop Buttons */}
+          <div className="hidden md:flex gap-3">
+            <Button variant="secondary" size="sm">
+              CADASTRE-SE E CONCORRA
+            </Button>
+            <Button variant="default" size="sm">
+              Meus números da sorte
+            </Button>
+          </div>
 
           {/* Mobile Menu */}
           <Sheet open={open} onOpenChange={setOpen}>
@@ -112,7 +117,10 @@ const Header = () => {
                 >
                   GANHADORES
                 </button>
-                <Button variant="default" size="sm" className="mt-4" onClick={() => setOpen(false)}>
+                <Button variant="secondary" size="sm" className="mt-4" onClick={() => setOpen(false)}>
+                  CADASTRE-SE E CONCORRA
+                </Button>
+                <Button variant="default" size="sm" onClick={() => setOpen(false)}>
                   Meus números da sorte
                 </Button>
               </div>

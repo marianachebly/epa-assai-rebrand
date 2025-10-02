@@ -40,8 +40,8 @@ const Header = () => {
               <button onClick={() => handleMenuClick('como-participar')} className="hover:text-secondary transition-colors font-semibold">
                 COMO PARTICIPAR
               </button>
-              <button onClick={() => handleMenuClick('aniversario')} className="hover:text-secondary transition-colors font-semibold">
-                ANIVERSÁRIO EPA
+              <button onClick={() => handleMenuClick('chances')} className="hover:text-secondary transition-colors font-semibold">
+                AUMENTE SUAS CHANCES
               </button>
               <button onClick={() => handleMenuClick('lojas')} className="hover:text-secondary transition-colors font-semibold">
                 LOJAS PARTICIPANTES
@@ -49,8 +49,8 @@ const Header = () => {
               <button onClick={() => handleMenuClick('regulamento', '/regulamento')} className="hover:text-secondary transition-colors font-semibold">
                 REGULAMENTO
               </button>
-              <button onClick={() => handleMenuClick('chances')} className="hover:text-secondary transition-colors font-semibold">
-                CALENDÁRIO
+              <button onClick={() => handleMenuClick('ganhadores', '/ganhadores')} className="hover:text-secondary transition-colors font-semibold">
+                GANHADORES
               </button>
             </div>
           </div>

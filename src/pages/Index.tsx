@@ -8,12 +8,10 @@ import VideoSection from "@/components/VideoSection";
 import StoreLocator from "@/components/StoreLocator";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
-import FloatingBalloons from "@/components/FloatingBalloons";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <FloatingBalloons />
       <Header />
       <CountdownBanner />
       <HeroSection />

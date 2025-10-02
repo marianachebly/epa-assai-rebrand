@@ -1,8 +1,18 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import logoEpa from "@/assets/logo-epa.png";
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
@@ -15,6 +25,7 @@ const Header = () => {
   };
 
   const handleMenuClick = (sectionId: string, path?: string) => {
+    setOpen(false); // Fecha o menu mobile
     if (path) {
       // Navega para outra página usando React Router
       navigate(path);
@@ -54,9 +65,60 @@ const Header = () => {
               </button>
             </div>
           </div>
+          
+          {/* Desktop Button */}
           <Button variant="default" size="sm" className="hidden md:inline-flex">
             Meus números da sorte
           </Button>
+
+          {/* Mobile Menu */}
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden text-primary">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="bg-background">
+              <SheetHeader>
+                <SheetTitle className="text-primary">Menu</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col gap-4 mt-8">
+                <button 
+                  onClick={() => handleMenuClick('como-participar')} 
+                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-2"
+                >
+                  COMO PARTICIPAR
+                </button>
+                <button 
+                  onClick={() => handleMenuClick('chances')} 
+                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-2"
+                >
+                  AUMENTE SUAS CHANCES
+                </button>
+                <button 
+                  onClick={() => handleMenuClick('lojas')} 
+                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-2"
+                >
+                  LOJAS PARTICIPANTES
+                </button>
+                <button 
+                  onClick={() => handleMenuClick('regulamento', '/regulamento')} 
+                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-2"
+                >
+                  REGULAMENTO
+                </button>
+                <button 
+                  onClick={() => handleMenuClick('ganhadores', '/ganhadores')} 
+                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-2"
+                >
+                  GANHADORES
+                </button>
+                <Button variant="default" size="sm" className="mt-4">
+                  Meus números da sorte
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
         </nav>
       </div>
     </header>

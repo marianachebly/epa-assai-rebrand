@@ -1,6 +1,6 @@
 import { ShoppingCart, UserPlus } from "lucide-react";
 const ParticipationSection = () => {
-  return <section className="py-16 bg-gradient-to-b from-primary to-primary/90 bg-slate-50">
+  return <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-black text-center text-secondary mb-12">
           Veja como participar

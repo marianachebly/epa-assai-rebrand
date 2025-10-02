@@ -29,7 +29,7 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="flex flex-col items-center space-y-2">
+          <div className="flex flex-col items-center space-y-0">
             <img 
               src={personEpa} 
               alt="Atendente EPA apontando para cima" 

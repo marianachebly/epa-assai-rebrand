@@ -1,9 +1,11 @@
+import logoEpa from "@/assets/logo-epa.png";
+
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground py-12">
       <div className="container mx-auto px-4">
         <div className="text-center space-y-4">
-          <div className="text-2xl font-bold">EPA</div>
+          <img src={logoEpa} alt="EPA" className="h-16 w-auto mx-auto" />
           <p className="text-sm max-w-4xl mx-auto leading-relaxed">
             Esta é uma promoção EPA válida para todas as lojas participantes. Consulte o regulamento completo 
             para mais informações sobre a promoção, marcas participantes e condições de participação.

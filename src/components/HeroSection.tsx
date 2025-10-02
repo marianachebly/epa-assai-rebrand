@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import personWithPhone from "@/assets/person-with-phone.jpg";
+import personEpa from "@/assets/person-epa.png";
 
 const HeroSection = () => {
   return (
@@ -31,9 +31,9 @@ const HeroSection = () => {
           
           <div className="flex flex-col items-center space-y-6">
             <img 
-              src={personWithPhone} 
-              alt="Pessoa segurando celular para cadastro" 
-              className="w-full max-w-md rounded-3xl shadow-2xl"
+              src={personEpa} 
+              alt="Atendente EPA apontando para cima" 
+              className="w-full max-w-md"
             />
             <Button variant="hero" size="lg" className="text-xl px-12 py-8">
               CADASTRE-SE AGORA E CONCORRA

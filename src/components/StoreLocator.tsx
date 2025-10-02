@@ -1,9 +1,36 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { MapPin } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { MapPin, Phone } from "lucide-react";
+import { getCities, getNeighborhoodsByCity, getStoresByCityAndNeighborhood, Store } from "@/data/stores";
 
 const StoreLocator = () => {
+  const [selectedCity, setSelectedCity] = useState<string>("");
+  const [selectedNeighborhood, setSelectedNeighborhood] = useState<string>("");
+  const [selectedStore, setSelectedStore] = useState<Store | null>(null);
+
+  const cities = getCities();
+  const neighborhoods = selectedCity ? getNeighborhoodsByCity(selectedCity) : [];
+
+  const handleCityChange = (city: string) => {
+    setSelectedCity(city);
+    setSelectedNeighborhood("");
+    setSelectedStore(null);
+  };
+
+  const handleNeighborhoodChange = (neighborhood: string) => {
+    setSelectedNeighborhood(neighborhood);
+    const stores = getStoresByCityAndNeighborhood(selectedCity, neighborhood);
+    setSelectedStore(stores[0] || null);
+  };
+
   return (
     <section className="py-16 bg-primary">
       <div className="container mx-auto px-4">
@@ -22,45 +49,65 @@ const StoreLocator = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
               <div>
-                <Label htmlFor="estado">Selecione seu estado</Label>
-                <select
-                  id="estado"
-                  className="w-full h-10 px-3 rounded-md border border-input bg-background"
-                >
-                  <option value="">Selecione...</option>
-                  <option value="MG">Minas Gerais</option>
-                  <option value="SP">São Paulo</option>
-                </select>
+                <Label htmlFor="cidade">Sua cidade</Label>
+                <Select value={selectedCity} onValueChange={handleCityChange}>
+                  <SelectTrigger id="cidade">
+                    <SelectValue placeholder="Selecione..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {cities.map((city) => (
+                      <SelectItem key={city} value={city}>
+                        {city}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
               
               <div>
-                <Label htmlFor="cidade">Selecione sua cidade</Label>
-                <select
-                  id="cidade"
-                  className="w-full h-10 px-3 rounded-md border border-input bg-background"
+                <Label htmlFor="bairro">Seu bairro</Label>
+                <Select 
+                  value={selectedNeighborhood} 
+                  onValueChange={handleNeighborhoodChange}
+                  disabled={!selectedCity}
                 >
-                  <option value="">Selecione...</option>
-                </select>
-              </div>
-              
-              <div>
-                <Label htmlFor="bairro">Selecione seu bairro</Label>
-                <select
-                  id="bairro"
-                  className="w-full h-10 px-3 rounded-md border border-input bg-background"
-                >
-                  <option value="">Selecione...</option>
-                </select>
+                  <SelectTrigger id="bairro">
+                    <SelectValue placeholder="Selecione..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {neighborhoods.map((neighborhood) => (
+                      <SelectItem key={neighborhood} value={neighborhood}>
+                        {neighborhood}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
             </div>
             
             <div className="bg-muted rounded-2xl p-6 flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <MapPin className="w-16 h-16 text-primary mx-auto" />
-                <p className="text-muted-foreground font-semibold">
-                  Loja mais próxima<br />será exibida aqui
-                </p>
-              </div>
+              {selectedStore ? (
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-bold text-foreground">{selectedStore.name}</p>
+                      <p className="text-sm text-muted-foreground">{selectedStore.address}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-5 h-5 text-primary flex-shrink-0" />
+                    <p className="text-sm font-semibold text-foreground">{selectedStore.phone}</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="text-center space-y-4">
+                  <MapPin className="w-16 h-16 text-primary mx-auto" />
+                  <p className="text-muted-foreground font-semibold">
+                    Selecione a cidade e bairro<br />para ver a loja
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

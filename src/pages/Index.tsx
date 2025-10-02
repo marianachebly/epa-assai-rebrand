@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import CountdownBanner from "@/components/CountdownBanner";
 import HeroSection from "@/components/HeroSection";
 import ParticipationSection from "@/components/ParticipationSection";
 import ChancesSection from "@/components/ChancesSection";
@@ -7,11 +8,14 @@ import VideoSection from "@/components/VideoSection";
 import StoreLocator from "@/components/StoreLocator";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
+import FloatingBalloons from "@/components/FloatingBalloons";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <FloatingBalloons />
       <Header />
+      <CountdownBanner />
       <HeroSection />
       <div id="como-participar">
         <ParticipationSection />

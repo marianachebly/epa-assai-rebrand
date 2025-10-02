@@ -80,10 +80,17 @@ export default {
             height: "0",
           },
         },
+        "float": {
+          "0%": { transform: "translateY(0) translateX(0) rotate(0deg)", opacity: "0" },
+          "10%": { opacity: "1" },
+          "90%": { opacity: "1" },
+          "100%": { transform: "translateY(-100vh) translateX(30px) rotate(15deg)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float": "float 10s ease-in-out infinite",
       },
     },
   },

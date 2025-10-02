@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import logoEpa from "@/assets/logo-epa.png";
 
 const Header = () => {
   const scrollToSection = (sectionId: string) => {
@@ -13,7 +14,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <div className="text-2xl font-bold">EPA</div>
+            <img src={logoEpa} alt="EPA" className="h-12 w-auto" />
             <div className="hidden md:flex gap-6 text-sm">
               <button onClick={() => scrollToSection('como-participar')} className="hover:text-secondary transition-colors">
                 COMO PARTICIPAR

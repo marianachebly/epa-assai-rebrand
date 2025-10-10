@@ -3,7 +3,7 @@ const ParticipationSection = () => {
   return <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-black text-center text-foreground mb-12">
-          Veja como participar
+          Para participar é fácil!
         </h2>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">

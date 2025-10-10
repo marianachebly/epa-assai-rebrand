@@ -126,12 +126,12 @@ const OffersSection = () => {
             }}
           />
         </div>
-        <div className="p-4 space-y-3 text-center">
-          <h3 className="font-semibold text-sm leading-tight min-h-[2.5rem] text-foreground line-clamp-2">
+        <div className="p-3 md:p-4 space-y-2 md:space-y-3 text-center">
+          <h3 className="font-semibold text-xs md:text-sm leading-tight min-h-[2rem] md:min-h-[2.5rem] text-foreground line-clamp-2">
             {offer.name}
           </h3>
           {offer.price && (
-            <p className="text-2xl font-black text-foreground">
+            <p className="text-xl md:text-2xl font-black text-foreground">
               R$ {offer.price.toFixed(2)}
             </p>
           )}
@@ -206,7 +206,7 @@ const OffersSection = () => {
                     >
                       <CarouselContent className="-ml-2 md:-ml-4">
                         {bhOffers.map((offer) => (
-                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/5">
+                           <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-full md:basis-1/3 lg:basis-1/5">
                             {renderOfferCard(offer)}
                           </CarouselItem>
                         ))}
@@ -239,7 +239,7 @@ const OffersSection = () => {
                     >
                       <CarouselContent className="-ml-2 md:-ml-4">
                         {riodoceOffers.map((offer) => (
-                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/5">
+                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-full md:basis-1/3 lg:basis-1/5">
                             {renderOfferCard(offer)}
                           </CarouselItem>
                         ))}

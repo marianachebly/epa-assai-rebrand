@@ -28,18 +28,26 @@ export const useAdminContent = () => {
   const loadContent = () => {
     const stored = localStorage.getItem(STORAGE_KEY);
     let contentToUse: Content;
-    let shouldFormat = false; // Flag para saber se deve formatar
+    let shouldFormat = false;
     
     if (stored) {
       try {
         const data = JSON.parse(stored);
-        // Se o JSON padrão tiver mais FAQs que o localStorage, usa o JSON (conteúdo atualizado)
-        if ((defaultContent as Content).faqs.length > data.faqs.length) {
-          console.log("Detectado conteúdo atualizado no JSON, usando nova versão");
-          contentToUse = defaultContent as Content;
-          shouldFormat = true; // Formata apenas conteúdo padrão novo
+        const defaultData = defaultContent as Content;
+        
+        // Verifica se precisa atualizar: mais FAQs no default OU primeira FAQ diferente
+        const needsUpdate = 
+          defaultData.faqs.length > data.faqs.length ||
+          (defaultData.faqs[0]?.question !== data.faqs[0]?.question);
+        
+        if (needsUpdate) {
+          console.log("🔄 Detectado conteúdo atualizado, aplicando formatação");
+          contentToUse = defaultData;
+          shouldFormat = true;
+          // Limpa o localStorage para forçar reload
+          localStorage.removeItem(STORAGE_KEY);
         } else {
-          contentToUse = data; // Conteúdo editado pelo admin, não formata
+          contentToUse = data;
           shouldFormat = false;
         }
       } catch (e) {
@@ -49,17 +57,17 @@ export const useAdminContent = () => {
       }
     } else {
       contentToUse = defaultContent as Content;
-      shouldFormat = true; // Formata conteúdo padrão inicial
+      shouldFormat = true;
     }
     
-    // Formata as perguntas APENAS se for conteúdo padrão
+    // Formata as perguntas se necessário
     const formattedContent = shouldFormat ? {
       ...contentToUse,
       faqs: contentToUse.faqs.map(faq => ({
         ...faq,
         question: formatQuestion(faq.question)
       }))
-    } : contentToUse; // Se editado pelo admin, usa exatamente como está
+    } : contentToUse;
     
     setContent(formattedContent);
   };

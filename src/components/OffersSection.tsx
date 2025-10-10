@@ -53,7 +53,7 @@ const OffersSection = () => {
   const findNearestStore = async () => {
     try {
       const location = await getUserLocation();
-      console.log("Localização obtida:", location);
+      console.log("📍 Localização do usuário:", location);
       
       const storesWithDistances = stores
         .filter(store => store.coordinates)
@@ -63,16 +63,18 @@ const OffersSection = () => {
         }))
         .sort((a, b) => a.distance - b.distance);
 
-      console.log("Lojas com distâncias:", storesWithDistances.slice(0, 3).map(s => ({
-        name: s.store.name,
-        distance: s.distance.toFixed(2) + "km"
-      })));
+      console.log("🏪 Top 5 lojas mais próximas:");
+      storesWithDistances.slice(0, 5).forEach((item, index) => {
+        console.log(`${index + 1}. ${item.store.name} - ${item.distance.toFixed(2)}km`);
+        console.log(`   Coordenadas: ${item.store.coordinates?.latitude}, ${item.store.coordinates?.longitude}`);
+      });
 
       if (storesWithDistances.length > 0) {
         setNearestStore(storesWithDistances[0].store);
+        console.log("✅ Loja selecionada:", storesWithDistances[0].store.name);
       }
     } catch (err) {
-      console.error("Erro ao obter localização:", err);
+      console.error("❌ Erro ao obter localização:", err);
       // Don't show any store if location fails
       setNearestStore(null);
     }

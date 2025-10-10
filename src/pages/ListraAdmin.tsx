@@ -86,6 +86,39 @@ const ListraAdmin = () => {
     setFaqs(newFaqs);
   };
 
+  const convertToEmbedUrl = (url: string): string => {
+    // Remove espaços
+    url = url.trim();
+    
+    // Se já está no formato embed, retorna
+    if (url.includes('/embed/')) {
+      return url;
+    }
+    
+    // Converte URL normal do YouTube para embed
+    // Formatos suportados:
+    // https://www.youtube.com/watch?v=VIDEO_ID
+    // https://youtu.be/VIDEO_ID
+    const patterns = [
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/,
+      /youtube\.com\/embed\/([^&\s]+)/
+    ];
+    
+    for (const pattern of patterns) {
+      const match = url.match(pattern);
+      if (match && match[1]) {
+        return `https://www.youtube.com/embed/${match[1]}`;
+      }
+    }
+    
+    return url;
+  };
+
+  const handleVideoUrlChange = (value: string) => {
+    const embedUrl = convertToEmbedUrl(value);
+    setVideoUrl(embedUrl);
+  };
+
   const handleSave = () => {
     try {
       // Valida se há FAQs com pergunta e resposta preenchidas
@@ -174,14 +207,16 @@ const ListraAdmin = () => {
           <CardHeader>
             <CardTitle>URL do Vídeo do YouTube</CardTitle>
             <CardDescription>
-              Cole a URL completa do vídeo (ex: https://www.youtube.com/embed/VIDEO_ID)
+              Cole qualquer URL do YouTube (ex: https://www.youtube.com/watch?v=VIDEO_ID)
+              <br />
+              <span className="text-xs text-muted-foreground">O sistema converte automaticamente para o formato correto</span>
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <Input
               value={videoUrl}
-              onChange={(e) => setVideoUrl(e.target.value)}
-              placeholder="https://www.youtube.com/embed/..."
+              onChange={(e) => handleVideoUrlChange(e.target.value)}
+              placeholder="https://www.youtube.com/watch?v=..."
             />
             {videoUrl && (
               <div className="aspect-video rounded-lg overflow-hidden bg-black">

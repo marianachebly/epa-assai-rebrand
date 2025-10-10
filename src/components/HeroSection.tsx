@@ -12,9 +12,9 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="text-primary-foreground space-y-6">
-            <div className="inline-block bg-secondary text-secondary-foreground px-4 py-2 rounded-full font-bold text-sm">13 de Outubro à 15 de Novembro de 2025</div>
-            
             <img src={logoCampanha} alt="EPA 66 Anos - Meio Milhão em vales-compra de R$ 1.000" className="w-full max-w-4xl" />
+            
+            <div className="inline-block bg-secondary text-secondary-foreground px-6 py-3 rounded-full font-bold text-base md:text-lg">13 de Outubro à 15 de Novembro de 2025</div>
           </div>
           
           <div className="flex flex-col items-center space-y-0">

@@ -36,7 +36,7 @@ const StoreLocator = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center gap-4 mb-8">
           <Button variant="secondary" size="lg" className="gap-2">
-            CONFIRA AQUI OS REGULAMENTOS DA PROMOÇÃO
+            CONFIRA AQUI O REGULAMENTO DA PROMOÇÃO
             <span className="text-2xl">→</span>
           </Button>
         </div>

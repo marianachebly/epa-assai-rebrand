@@ -2,9 +2,9 @@ import bannerAniversario from "@/assets/banner-aniversario66.png";
 import bannerMobile from "@/assets/banner-mobile.png";
 import FloatingBalloons from "@/components/FloatingBalloons";
 import Confetti from "@/components/Confetti";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 
-const HeroSection = () => {
+const HeroSection = memo(() => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -30,8 +30,11 @@ const HeroSection = () => {
           src={isMobile ? bannerMobile : bannerAniversario} 
           alt="EPA 66 Anos - Meio Milhão em vales-compra de R$ 1.000" 
           className={isMobile ? "w-full max-w-md h-auto" : "w-full max-w-5xl max-h-[480px] object-cover object-top"}
+          loading="eager"
+          fetchPriority="high"
         />
       </div>
     </section>;
-};
+});
+
 export default HeroSection;

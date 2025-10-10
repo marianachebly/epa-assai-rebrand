@@ -21,7 +21,13 @@ export const useAdminContent = () => {
     if (stored) {
       try {
         const data = JSON.parse(stored);
-        setContent(data);
+        // Se o JSON padrão tiver mais FAQs que o localStorage, usa o JSON (conteúdo atualizado)
+        if ((defaultContent as Content).faqs.length > data.faqs.length) {
+          console.log("Detectado conteúdo atualizado no JSON, usando nova versão");
+          setContent(defaultContent as Content);
+        } else {
+          setContent(data);
+        }
       } catch (e) {
         console.error("Erro ao carregar conteúdo:", e);
         setContent(defaultContent as Content);

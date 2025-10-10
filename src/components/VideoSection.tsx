@@ -1,6 +1,14 @@
 import { Play } from "lucide-react";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const VideoSection = () => {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
     <section className="py-16 bg-gradient-to-b from-primary to-secondary">
       <div className="container mx-auto px-4">
@@ -9,7 +17,10 @@ const VideoSection = () => {
         </h2>
         
         <div className="max-w-4xl mx-auto">
-          <div className="relative aspect-video bg-primary rounded-3xl overflow-hidden shadow-2xl group cursor-pointer">
+          <div 
+            className="relative aspect-video bg-primary rounded-3xl overflow-hidden shadow-2xl group cursor-pointer"
+            onClick={() => setIsVideoOpen(true)}
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
               <div className="bg-background rounded-full w-24 h-24 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">
                 <Play className="w-12 h-12 text-primary fill-primary" />
@@ -18,6 +29,24 @@ const VideoSection = () => {
           </div>
         </div>
       </div>
+
+      <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
+        <DialogContent className="max-w-4xl p-0">
+          <DialogTitle className="sr-only">Vídeo da campanha EPA</DialogTitle>
+          <div className="aspect-video">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/M6eKbE7AJuk?autoplay=1"
+              title="Vídeo da campanha EPA"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="rounded-lg"
+            ></iframe>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

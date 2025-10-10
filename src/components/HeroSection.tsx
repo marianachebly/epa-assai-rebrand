@@ -1,4 +1,4 @@
-import bannerAniversario from "@/assets/aniversarioepa66anos-2.png";
+import bannerAniversario from "@/assets/banner-aniversario66.png";
 import FloatingBalloons from "@/components/FloatingBalloons";
 
 const HeroSection = () => {

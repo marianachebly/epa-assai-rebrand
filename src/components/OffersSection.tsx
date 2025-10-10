@@ -11,6 +11,9 @@ import {
 } from "@/components/ui/carousel";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import { stores, Store } from "@/data/stores";
+import { getUserLocation, calculateDistance } from "@/lib/geolocation";
+import izaLojaImage from "@/assets/iza-loja.png";
 
 interface Offer {
   id: number;
@@ -40,10 +43,34 @@ const OffersSection = () => {
   const [bhExpires, setBhExpires] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("belohorizonte");
+  const [nearestStore, setNearestStore] = useState<Store | null>(null);
 
   useEffect(() => {
     fetchOffers();
+    findNearestStore();
   }, []);
+
+  const findNearestStore = async () => {
+    try {
+      const location = await getUserLocation();
+      const storesWithDistances = stores
+        .filter(store => store.coordinates)
+        .map(store => ({
+          store,
+          distance: calculateDistance(location, store.coordinates!),
+        }))
+        .sort((a, b) => a.distance - b.distance);
+
+      if (storesWithDistances.length > 0) {
+        setNearestStore(storesWithDistances[0].store);
+      }
+    } catch (err) {
+      console.error("Não foi possível obter localização:", err);
+      if (stores.length > 0 && stores[0].coordinates) {
+        setNearestStore(stores[0]);
+      }
+    }
+  };
 
   const fetchOffers = async () => {
     setLoading(true);
@@ -110,12 +137,39 @@ const OffersSection = () => {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-black text-center mb-4">
-          Ofertas Imperdíveis
-        </h2>
-        <p className="text-center text-muted-foreground mb-8">
-          Confira as melhores ofertas da semana
-        </p>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
+          <div className="flex-1">
+            <h2 className="text-4xl md:text-5xl font-black text-center md:text-left mb-4">
+              Ofertas Imperdíveis
+            </h2>
+            <p className="text-center md:text-left text-muted-foreground">
+              Confira as melhores ofertas da semana
+            </p>
+          </div>
+          
+          {nearestStore && (
+            <div className="relative flex-shrink-0">
+              <img 
+                src={izaLojaImage} 
+                alt="Iza" 
+                className="w-full max-w-[400px] h-auto"
+              />
+              <div className="absolute inset-0 flex items-center justify-center md:justify-end pr-4 md:pr-12">
+                <div className="text-center md:text-left max-w-[220px]">
+                  <p className="text-lg md:text-xl font-bold text-foreground leading-tight">
+                    Ei, Vizinho!
+                  </p>
+                  <p className="text-sm md:text-base font-semibold text-foreground mt-1">
+                    Sua loja mais próxima é a:
+                  </p>
+                  <p className="text-base md:text-lg font-black text-primary mt-1">
+                    {nearestStore.name}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
 
         <Tabs defaultValue="belohorizonte" value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">

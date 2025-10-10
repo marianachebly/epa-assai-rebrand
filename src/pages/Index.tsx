@@ -8,8 +8,7 @@ import VideoSection from "@/components/VideoSection";
 import StoreLocator from "@/components/StoreLocator";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
-import NearbyStores from "@/components/NearbyStores";
-import NearestStoreCard from "@/components/NearestStoreCard";
+
 
 const Index = () => {
   return (
@@ -23,7 +22,6 @@ const Index = () => {
       <div id="chances">
         <ChancesSection />
       </div>
-      <NearestStoreCard />
       <div id="ofertas">
         <OffersSection />
       </div>

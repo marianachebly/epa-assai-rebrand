@@ -2,6 +2,13 @@ import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 
@@ -24,7 +31,7 @@ const OffersSection = () => {
   const [riodoceOffers, setRiodoceOffers] = useState<Offer[]>([]);
   const [bhOffers, setBhOffers] = useState<Offer[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState("riodoce");
+  const [activeTab, setActiveTab] = useState("belohorizonte");
 
   useEffect(() => {
     fetchOffers();
@@ -107,10 +114,10 @@ const OffersSection = () => {
           Confira as melhores ofertas da semana
         </p>
 
-        <Tabs defaultValue="riodoce" value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <Tabs defaultValue="belohorizonte" value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
-            <TabsTrigger value="riodoce">Rio Doce e Mururi</TabsTrigger>
             <TabsTrigger value="belohorizonte">Belo Horizonte e Região</TabsTrigger>
+            <TabsTrigger value="riodoce">Rio Doce e Mucuri</TabsTrigger>
           </TabsList>
 
           {loading ? (
@@ -119,11 +126,25 @@ const OffersSection = () => {
             </div>
           ) : (
             <>
-              <TabsContent value="riodoce">
-                {riodoceOffers.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {riodoceOffers.slice(0, 8).map(renderOfferCard)}
-                  </div>
+              <TabsContent value="belohorizonte">
+                {bhOffers.length > 0 ? (
+                  <Carousel
+                    opts={{
+                      align: "start",
+                      loop: true,
+                    }}
+                    className="w-full max-w-7xl mx-auto px-12"
+                  >
+                    <CarouselContent>
+                      {bhOffers.map((offer) => (
+                        <CarouselItem key={offer.id} className="md:basis-1/2 lg:basis-1/4">
+                          {renderOfferCard(offer)}
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                  </Carousel>
                 ) : (
                   <div className="text-center py-12 text-muted-foreground">
                     Nenhuma oferta disponível no momento
@@ -131,11 +152,25 @@ const OffersSection = () => {
                 )}
               </TabsContent>
 
-              <TabsContent value="belohorizonte">
-                {bhOffers.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {bhOffers.slice(0, 8).map(renderOfferCard)}
-                  </div>
+              <TabsContent value="riodoce">
+                {riodoceOffers.length > 0 ? (
+                  <Carousel
+                    opts={{
+                      align: "start",
+                      loop: true,
+                    }}
+                    className="w-full max-w-7xl mx-auto px-12"
+                  >
+                    <CarouselContent>
+                      {riodoceOffers.map((offer) => (
+                        <CarouselItem key={offer.id} className="md:basis-1/2 lg:basis-1/4">
+                          {renderOfferCard(offer)}
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                  </Carousel>
                 ) : (
                   <div className="text-center py-12 text-muted-foreground">
                     Nenhuma oferta disponível no momento

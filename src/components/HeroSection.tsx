@@ -14,8 +14,7 @@ const HeroSection = () => {
             <div className="inline-block bg-secondary text-secondary-foreground px-4 py-2 rounded-full font-bold text-sm">13 de Outubro à 15 de Novembro de 2025</div>
             
             <h1 className="text-5xl md:text-6xl font-black leading-tight">
-              UM CERTIFICADO DE PRÊMIO DE
-              <span className="block text-secondary text-7xl md:text-8xl mt-2">R$ 1 MILHÃO</span>
+              ANIVERSÁRIO EPA 66 anos
             </h1>
             
             <p className="text-2xl md:text-3xl font-bold">

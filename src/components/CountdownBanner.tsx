@@ -14,7 +14,7 @@ const CountdownBanner = () => {
 
     return () => clearInterval(interval);
   }, []);
-  return <div className="text-secondary-foreground py-3 px-4 text-center font-bold text-sm md:text-base bg-[#e30613] rounded-none">
+  return <div className="text-white py-3 px-4 text-center font-bold text-sm md:text-base bg-[#e30613] rounded-none">
       Você ainda tem <span className="text-lg md:text-xl">{daysLeft} DIAS</span> para participar
     </div>;
 };

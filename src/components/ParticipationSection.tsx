@@ -15,10 +15,7 @@ const ParticipationSection = () => {
               <ShoppingCart className="w-12 h-12 text-secondary" />
             </div>
             <p className="text-secondary-foreground font-semibold text-xl">
-              Faça suas compras nas lojas <span className="font-bold text-primary">EPA</span> e digite seu CPF no caixa.
-            </p>
-            <p className="text-primary font-bold text-lg mt-4">
-              Não se esqueça de digitar o CPF <strong>antes</strong> de passar suas compras.
+              Antes de passar suas compras, digite seu CPF no caixa.
             </p>
           </div>
           

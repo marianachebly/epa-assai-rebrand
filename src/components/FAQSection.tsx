@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FAQSection = () => {
   const faqs = [
@@ -32,9 +33,11 @@ const FAQSection = () => {
         </div>
         
         <div className="text-center mt-8">
-          <Button variant="default" size="lg">
-            VER MAIS PERGUNTAS
-          </Button>
+          <Link to="/perguntas-frequentes">
+            <Button variant="default" size="lg">
+              VER MAIS PERGUNTAS
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

@@ -28,6 +28,9 @@ const CountdownBanner = () => {
     ),
   ];
 
+  // Alterna cores entre amarelo e branco
+  const messageColor = currentMessageIndex % 2 === 0 ? "text-white" : "text-[#f9e103]";
+
   useEffect(() => {
     const calculateDays = () => {
       const today = new Date();
@@ -51,14 +54,21 @@ const CountdownBanner = () => {
     return () => clearInterval(interval);
   }, [messages.length]);
   return (
-    <div className="text-white py-3 px-4 text-center font-bold text-sm md:text-base bg-[#e30613] rounded-none flex items-center justify-center gap-2 flex-wrap animate-fade-in">
+    <div className="text-white py-3 px-4 text-center font-bold text-sm md:text-base bg-[#e30613] rounded-none flex items-center justify-center gap-2 overflow-hidden">
       <Clock className="w-5 h-5 flex-shrink-0" />
-      <span key={currentMessageIndex} className="animate-fade-in">
-        {messages[currentMessageIndex](daysLeft)}
-      </span>
-      {currentMessageIndex === 0 && (
-        <span className="text-[#f9e103]">Campanha válida de 13 de Outubro à 15 de Novembro de 2025</span>
-      )}
+      <div className="flex items-center gap-2 flex-wrap justify-center overflow-hidden">
+        <span 
+          key={currentMessageIndex} 
+          className={`${messageColor} animate-slide-in-right inline-block`}
+        >
+          {messages[currentMessageIndex](daysLeft)}
+        </span>
+        {currentMessageIndex === 0 && (
+          <span className="text-[#f9e103] animate-slide-in-right inline-block">
+            Campanha válida de 13 de Outubro à 15 de Novembro de 2025
+          </span>
+        )}
+      </div>
     </div>
   );
 };

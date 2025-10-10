@@ -92,12 +92,22 @@ export default {
           "50%": { transform: "translate(-10px, 10px) rotate(-3deg)" },
           "75%": { transform: "translate(20px, 5px) rotate(7deg)" },
         },
+        "slide-in-right": {
+          "0%": { transform: "translateX(100%)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+        "slide-out-left": {
+          "0%": { transform: "translateX(0)", opacity: "1" },
+          "100%": { transform: "translateX(-100%)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "float": "float 10s ease-in-out infinite",
         "float-sway": "float-sway 6s ease-in-out infinite",
+        "slide-in-right": "slide-in-right 0.6s ease-out",
+        "slide-out-left": "slide-out-left 0.6s ease-out",
       },
     },
   },

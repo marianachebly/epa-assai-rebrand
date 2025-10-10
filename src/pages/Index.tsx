@@ -16,9 +16,6 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <CountdownBanner />
-      <div className="container mx-auto px-4 py-8">
-        <NearbyStores />
-      </div>
       <HeroSection />
       <div id="como-participar">
         <ParticipationSection />

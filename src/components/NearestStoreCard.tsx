@@ -28,6 +28,10 @@ const NearestStoreCard = () => {
         }
       } catch (err) {
         console.error("Não foi possível obter localização:", err);
+        // Even if location fails, show a default store
+        if (stores.length > 0 && stores[0].coordinates) {
+          setNearestStore(stores[0]);
+        }
       } finally {
         setLoading(false);
       }

@@ -43,14 +43,18 @@ const ListraAdmin = () => {
         setFaqs(data.faqs || []);
       } catch (e) {
         console.error("Erro ao carregar conteúdo:", e);
+        loadDefaultContent();
       }
     } else {
-      // Carrega valores padrão do JSON estático
-      import("@/config/content.json").then((module) => {
-        setVideoUrl(module.default.videoUrl);
-        setFaqs(module.default.faqs || []);
-      });
+      loadDefaultContent();
     }
+  };
+
+  const loadDefaultContent = () => {
+    import("@/config/content.json").then((module) => {
+      setVideoUrl(module.default.videoUrl);
+      setFaqs(module.default.faqs || []);
+    });
   };
 
   const handleLogin = (e: React.FormEvent) => {

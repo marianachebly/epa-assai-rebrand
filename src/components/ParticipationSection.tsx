@@ -13,8 +13,8 @@ const ParticipationSection = () => {
             <div className="bg-primary rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
               <ShoppingCart className="w-12 h-12 text-secondary" />
             </div>
-            <p className="text-secondary-foreground font-semibold text-lg">
-              Faça suas compras nas lojas <span className="font-bold">EPA de Minas Gerais</span>.
+            <p className="text-secondary-foreground font-semibold text-xl">
+              Faça suas compras nas lojas <span className="font-bold text-primary">EPA</span> de Minas Gerais.
             </p>
           </div>
           
@@ -23,8 +23,8 @@ const ParticipationSection = () => {
             <div className="bg-primary rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
               <Ticket className="w-12 h-12 text-secondary" />
             </div>
-            <p className="text-secondary-foreground font-semibold text-lg">
-              A cada <span className="font-bold">R$ 100,00</span> em compras, você ganha 1 número da sorte.
+            <p className="text-secondary-foreground font-semibold text-xl">
+              A cada <span className="font-bold text-primary">R$ 100,00</span> em compras, você ganha 1 número da sorte.
             </p>
           </div>
 
@@ -33,8 +33,8 @@ const ParticipationSection = () => {
             <div className="bg-primary rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
               <Gift className="w-12 h-12 text-secondary" />
             </div>
-            <p className="text-secondary-foreground font-semibold text-lg">
-              Cadastre-se no site da promoção e pronto! Já está concorrendo a <span className="font-bold">vale-compras de MIL REAIS!</span>
+            <p className="text-secondary-foreground font-semibold text-xl">
+              Cadastre-se no site da promoção e pronto! Já está concorrendo a vale-compras de <span className="font-bold text-primary">R$ 1.000,00</span>!
             </p>
           </div>
         </div>

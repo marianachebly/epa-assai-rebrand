@@ -56,7 +56,9 @@ const CountdownBanner = () => {
       <span key={currentMessageIndex} className="animate-fade-in">
         {messages[currentMessageIndex](daysLeft)}
       </span>
-      <span className="text-[#f9e103]">Campanha válida de 13 de Outubro à 15 de Novembro de 2025</span>
+      {currentMessageIndex === 0 && (
+        <span className="text-[#f9e103]">Campanha válida de 13 de Outubro à 15 de Novembro de 2025</span>
+      )}
     </div>
   );
 };

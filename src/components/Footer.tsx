@@ -1,21 +1,50 @@
 import logoRodape from "@/assets/rodape-logo.png";
+import { MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
+  const whatsappNumber = "5531999999999"; // Substitua pelo número correto
+  const whatsappMessage = "Olá! Tenho dúvidas sobre a promoção EPA 66 anos.";
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
   return (
-    <footer className="bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground py-12">
-      <div className="container mx-auto px-4">
-        <div className="text-center space-y-4">
-          <img src={logoRodape} alt="EPA 66 Anos" className="h-20 w-auto mx-auto" />
-          <p className="text-sm max-w-4xl mx-auto leading-relaxed">
-            Esta é uma promoção do EPA Supermercados válida para todas as lojas participantes no período de 13 de Outubro à 15 de Novembro de 2025. Consulte o regulamento completo para mais informações sobre a promoção.
-          </p>
-          <div className="text-xs text-primary-foreground/80">
-            <p>01.928.075/0001-08 | Razão Social: DMA DISTRIBUIDORA S/A</p>
-            <p className="mt-2">© 2025 DMA Distribuidora - Todos os direitos reservados.</p>
+    <>
+      {/* Tarja de Contato */}
+      <section className="bg-[#e30613] py-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center space-y-6">
+            <h2 className="text-4xl md:text-5xl font-black text-white">
+              Ainda tem dúvidas?
+            </h2>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              <Button 
+                size="lg"
+                className="bg-white text-[#e30613] hover:bg-white/90 font-bold text-lg px-8 py-6 rounded-full shadow-xl hover:scale-105 transition-transform"
+              >
+                <MessageCircle className="w-6 h-6 mr-2" />
+                Manda um WhatsApp
+              </Button>
+            </a>
           </div>
         </div>
-      </div>
-    </footer>
+      </section>
+
+      {/* Footer Original */}
+      <footer className="bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground py-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center space-y-4">
+            <img src={logoRodape} alt="EPA 66 Anos" className="h-20 w-auto mx-auto" />
+            <p className="text-sm max-w-4xl mx-auto leading-relaxed">
+              Esta é uma promoção do EPA Supermercados válida para todas as lojas participantes no período de 13 de Outubro à 15 de Novembro de 2025. Consulte o regulamento completo para mais informações sobre a promoção.
+            </p>
+            <div className="text-xs text-primary-foreground/80">
+              <p>01.928.075/0001-08 | Razão Social: DMA DISTRIBUIDORA S/A</p>
+              <p className="mt-2">© 2025 DMA Distribuidora - Todos os direitos reservados.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 };
 

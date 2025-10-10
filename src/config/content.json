@@ -2,16 +2,80 @@
   "videoUrl": "https://www.youtube.com/embed/M6eKbE7AJuk",
   "faqs": [
     {
-      "question": "Como faço para participar da Promoção?",
-      "answer": "• Faça suas compras nas lojas EPA de Minas Gerais.\n• Digite seu CPF antes de passar suas compras!\n• A cada R$ 100 em compras, você ganha 1 número da sorte.\n• Cadastre-se aqui no site da promoção e pronto!\n• Já está concorrendo a vale-compras de R$ 1.000.\n\n**Se você comprar com o cartão Fácil, você tem número da sorte em dobro!**"
+      "question": "FUI A LOJA E ESQUECI DE DIGITAR MEU CPF. / FUI A LOJA, MAS EU NÃO SABIA O NÚMERO DO MEU CPF E POR ISSO NÃO PUDE DIGITAR: O QUE EU FAÇO AGORA PARA PARTICIPAR DA PROMOÇÃO?",
+      "answer": "A única maneira de vincular a participação na promoção é digitando o CPF no caixa, antes de iniciar a compra. Se isso não foi realizado por algum motivo será necessário realizar uma nova compra, no valor mínimo de R$ 100,00 (Cem reais) para que seja possível vincular o valor à promoção. Lembrando que não basta informar o CPF, é necessário realizar o seu cadastro uma única vez no site da promoção www.epa.com.br/aniversario."
     },
     {
-      "question": "Como me cadastrar para o sorteio?",
-      "answer": "Após realizar suas compras, guarde seus cupons fiscais. Acesse nosso site ou aplicativo, faça seu cadastro informando seus dados pessoais e registre os números dos cupons fiscais das compras participantes. Você receberá automaticamente seus números da sorte."
+      "question": "COMO FAÇO PARA ME CADASTRAR NA PROMOÇÃO?",
+      "answer": "Através do site da promoção www.epa.com.br/aniversario, você deverá informar os dados cadastrais solicitados, atualizados, bem como criar uma senha, ler e aceitar os termos do Regulamento do Programa, autorizando o uso dos seus dados pessoais para fins de participação nesta promoção, assim como da Política de uso dos dados do site conforme LGPD."
     },
     {
-      "question": "Qual período para participação para realizar compras válidas?",
-      "answer": "O período de participação é de 13 de Outubro de 2025 até 15 de Novembro de 2025. Somente compras realizadas neste período serão válidas para a promoção."
+      "question": "QUEM PODE PARTICIPAR?",
+      "answer": "A promoção é destinada aos consumidores cadastrados no site da promoção, pessoas físicas, maiores de 18 anos, residentes e domiciliadas em território Nacional, que realizem compras nas Lojas Físicas EPA Supermercados, localizadas no estado de Minas Gerais, durante o Período de Participação de 13/10/2025 a 15/11/2025."
+    },
+    {
+      "question": "COMO FUNCIONA A PROMOÇÃO?",
+      "answer": "Participar é muito simples: a cada R$ 100,00 (Cem Reais) em compras e seus múltiplos, realizadas em qualquer loja do EPA Supermercados, no período de 13/10/2025 a 15/11/2025, você registra o CPF no caixa antes de registrar as suas compras, faz o seu cadastro uma única vez através do Site www.epa.com.br/aniversario, e recebe em até 72h os seus números da sorte para concorrer aos prêmios da promoção (cada R$ 100,00 = 1 Número da Sorte e a cada R$100,00 em compras pago com o Cartão Fácil = Número da Sorte em dobro).\n\nVocê precisa verificar se cumpriu todos os passos do cadastro, ter aceitado o Regulamento, Termos e Condições e Política de Privacidade e preenchido os campos obrigatórios (marcados com *). Caso ainda fique com dúvida, favor fazer contato pelo Whatsapp (31) 9 9992-6521.\n\nImportante: A Promoção é acumulativa, ou seja, saldo residual durante o período da promoção em outros cupons fiscais ou notas fiscais de compras de valores inferiores a R$ 100,00 (reais) serão somados e/ou acumulados para fins de recebimento do Número da Sorte desta promoção."
+    },
+    {
+      "question": "QUAL É O PRÊMIO DA PROMOÇÃO?",
+      "answer": "500 vales-compra de R$1.000,00 (mil reais) cada"
+    },
+    {
+      "question": "COMO FAÇO PARA LANÇAR OS DADOS DOS MEUS CUPONS NO SITE DA PROMOÇÃO?",
+      "answer": "Não é possível e nem necessário cadastrar o número do cupom, A ÚNICA MANEIRA DE VINCULAR SUA PARTICIPAÇÃO NA PROMOÇÃO É DIGITANDO O SEU CPF, ANTES DE REGISTRAR SUAS COMPRAS NO CAIXA. Lembrando que não basta APENAS informar o CPF, é necessário que você realize o cadastro UMA ÚNICA VEZ no site www.epa.com.br/aniversario."
+    },
+    {
+      "question": "COMO FUNCIONA O NÚMERO DA SORTE?",
+      "answer": "Os números da sorte são compostos por uma sequência numérica que identifica a participação do cliente na promoção. Não existe uma sequência igual a outra e é por meio desses números que serão identificados os ganhadores ao final da promoção.\n\nVocê tem acesso aos seus números da sorte através do site www.epa.com.br/aniversario, caso tenha realizado suas compras a partir do dia 13/10/2025, cujo CPF tenha sido digitado no caixa e o cadastro esteja completo no site da promoção e os valores somam acima de R$ 100,00."
+    },
+    {
+      "question": "FIZ O CADASTRO DO MEU CPF, MAS ELE NÃO SAIU IMPRESSO NO CUPOM FISCAL, MESMO ASSIM MINHA PARTICIPAÇÃO NA PROMOÇÃO ESTÁ VÁLIDA?",
+      "answer": "Não. A comprovação de que você digitou corretamente o seu CPF ao realizar as compras acima de R$100,00 é a impressão do número digitado no rodapé do Cupom Fiscal (NFCe – Nota Fiscal de Consumidor Eletrônica). Neste caso para participar será necessário que você realize uma nova compra, no valor mínimo de R$ 100,00 (Cem reais) para que seja possível vincular o valor à promoção.\n\nLembrando que o ato de informar o CPF no momento da compra não é garantia de participação na promoção, sendo necessária a efetivação do cadastro completo do participante no site. O não cadastramento completo inabilita a participação do consumidor nesta promoção."
+    },
+    {
+      "question": "FIZ MEU CADASTRO NO SITE E AINDA NÃO RECEBI O MEU NÚMERO DA SORTE.",
+      "answer": "Há um prazo de 72 horas contados a partir da data da compra para que o número da sorte seja gerado, isso considerando que você já tenha se cadastrado no site. Caso ultrapasse este prazo e mesmo assim o seu número não seja gerado, você deve fazer contato pelo Whatsapp (31) 9 9992-6521, com o seu cupom fiscal em mãos, para que possamos oferecer o suporte."
+    },
+    {
+      "question": "JÁ SE PASSARAM 72 HORAS E MEU NÚMERO DA SORTE AINDA NÃO FOI GERADO.",
+      "answer": "Neste caso você deve enviar uma foto do cupom fiscal com a pendência de número da sorte para o Whatsapp (31) 9 9992-6521 de forma a entendermos o que ocorreu."
+    },
+    {
+      "question": "ATÉ QUANDO POSSO REALIZAR O MEU CADASTRO?",
+      "answer": "Durante o período de vigência da promoção, sendo de 13/10/2025 a 15/11/2025."
+    },
+    {
+      "question": "QUANDO VAI ACONTECER O SORTEIO? COMO SERÁ FEITO O SORTEIO? CASO EU SEJA UM DOS GANHADORES, EU SEREI COMUNICADO?",
+      "answer": "Os nomes dos ganhadores serão definidos com base nas regras do Regulamento, a partir de um raciocínio matemático baseado na composição dos prêmios do sorteio da extração da Loteria Federal que ocorrerá na data 22/11/2025, conforme descrito no regulamento. Recomendamos que faça a leitura do regulamento da promoção disponível no site para que entenda como será a apuração dos números da sorte desta promoção. Os ganhadores serão comunicados através dos dados pessoais que foram preenchidos no ato do cadastro."
+    },
+    {
+      "question": "ONDE CONSULTO MEU NÚMERO DA SORTE?",
+      "answer": "Para visualizar os números da sorte recebidos basta que você acesse seu cadastro com CPF e senha:\n– No site vá em <CONFIRA NÚMEROS DA SORTE-TOQUE AQUI>, depois <VISUALIZAR OS NÚMEROS DA SORTE>."
+    },
+    {
+      "question": "CADASTREI NA PROMOÇÃO, PORÉM NÃO LEMBRO A SENHA. JÁ SOLICITEI O ENVIO DE UMA NOVA SENHA E, APARECE A MENSAGEM DE SENHA ENVIADA, MAS NÃO RECEBI NADA.",
+      "answer": "Gentileza entrar em contato pelo Whatsapp (31) 9 9992-6521, para que possamos auxiliá-lo."
+    },
+    {
+      "question": "A MINHA DOAÇÃO PARA A AÇÃO TROCO SOLIDÁRIO ENTRA NA CONTA DE R$ 100,00?",
+      "answer": "Os valores das doações não somam na compra para ganhar o número da sorte."
+    },
+    {
+      "question": "POSSO ALTERAR UM CPF QUE FOI IMPRESSO NO CUPOM?",
+      "answer": "Não. Após inserir o CPF no cupom fiscal NÃO HÁ COMO ALTERAR o CPF cadastrado."
+    },
+    {
+      "question": "COMO VAI SER DIVULGADO O RESULTADO DA PROMOÇÃO?",
+      "answer": "A divulgação dos nomes dos ganhadores e respectivos números da sorte será feita no site da promoção, perfil oficial nas redes sociais do EPA Supermercado e em banners fixados nas unidades do EPA Supermercados, em até 10 (dez) dias após o sorteio, permanecendo no site da promoção por mais 30 (trinta) dias após o término da promoção."
+    },
+    {
+      "question": "ONDE VAI SER O SORTEIO?",
+      "answer": "Os ganhadores da promoção serão identificados de acordo com o resultado da extração da Loteria Federal do Brasil do dia 22/11/2025, de acordo com as regras estabelecidas no regulamento."
+    },
+    {
+      "question": "COMO FICO SABENDO SE SOU GANHADOR?",
+      "answer": "Os ganhadores serão comunicados sobre a sua contemplação após sua identificação e validação, por telefone, conforme os dados constantes no cadastro."
     }
   ]
 }

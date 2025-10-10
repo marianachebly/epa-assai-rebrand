@@ -43,10 +43,10 @@ const CountdownBanner = () => {
   }, []);
 
   useEffect(() => {
-    // Rotate messages every hour
+    // Rotate messages every 7 seconds
     const interval = setInterval(() => {
       setCurrentMessageIndex((prev) => (prev + 1) % messages.length);
-    }, 3600000); // 3600000ms = 1 hour
+    }, 7000); // 7000ms = 7 seconds
 
     return () => clearInterval(interval);
   }, [messages.length]);

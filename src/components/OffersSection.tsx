@@ -11,9 +11,6 @@ import {
 } from "@/components/ui/carousel";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
-import { stores, Store } from "@/data/stores";
-import { getUserLocation, calculateDistance } from "@/lib/geolocation";
-import izaLojaImage from "@/assets/iza-loja.png";
 
 interface Offer {
   id: number;
@@ -43,42 +40,10 @@ const OffersSection = () => {
   const [bhExpires, setBhExpires] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("belohorizonte");
-  const [nearestStore, setNearestStore] = useState<Store | null>(null);
 
   useEffect(() => {
     fetchOffers();
-    findNearestStore();
   }, []);
-
-  const findNearestStore = async () => {
-    try {
-      const location = await getUserLocation();
-      console.log("📍 Localização do usuário:", location);
-      
-      const storesWithDistances = stores
-        .filter(store => store.coordinates)
-        .map(store => ({
-          store,
-          distance: calculateDistance(location, store.coordinates!),
-        }))
-        .sort((a, b) => a.distance - b.distance);
-
-      console.log("🏪 Top 5 lojas mais próximas:");
-      storesWithDistances.slice(0, 5).forEach((item, index) => {
-        console.log(`${index + 1}. ${item.store.name} - ${item.distance.toFixed(2)}km`);
-        console.log(`   Coordenadas: ${item.store.coordinates?.latitude}, ${item.store.coordinates?.longitude}`);
-      });
-
-      if (storesWithDistances.length > 0) {
-        setNearestStore(storesWithDistances[0].store);
-        console.log("✅ Loja selecionada:", storesWithDistances[0].store.name);
-      }
-    } catch (err) {
-      console.error("❌ Erro ao obter localização:", err);
-      // Don't show any store if location fails
-      setNearestStore(null);
-    }
-  };
 
   const fetchOffers = async () => {
     setLoading(true);

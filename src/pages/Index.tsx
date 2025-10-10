@@ -8,12 +8,16 @@ import VideoSection from "@/components/VideoSection";
 import StoreLocator from "@/components/StoreLocator";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
+import NearbyStores from "@/components/NearbyStores";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
       <CountdownBanner />
+      <div className="container mx-auto px-4 py-8">
+        <NearbyStores />
+      </div>
       <HeroSection />
       <div id="como-participar">
         <ParticipationSection />

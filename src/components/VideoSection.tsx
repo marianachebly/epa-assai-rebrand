@@ -1,5 +1,5 @@
 import { Play, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -8,9 +8,11 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import videoThumbnail from "@/assets/video-thumbnail.png";
+import { useAdminContent } from "@/hooks/useAdminContent";
 
 const VideoSection = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const { videoUrl } = useAdminContent();
 
   return (
     <section className="py-16 bg-gradient-to-b from-primary to-secondary">
@@ -55,7 +57,7 @@ const VideoSection = () => {
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/M6eKbE7AJuk?autoplay=1"
+              src={videoUrl + "?autoplay=1"}
               title="Vídeo da campanha EPA"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -6,31 +6,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useAdminContent } from "@/hooks/useAdminContent";
 
 const FAQSection = () => {
-  const faqs = [
-    {
-      question: "Como faço para participar da Promoção?",
-      answer: (
-        <div className="space-y-2">
-          <p>• Faça suas compras nas lojas EPA de Minas Gerais.</p>
-          <p>• Digite seu CPF antes de passar suas compras!</p>
-          <p>• A cada R$ 100 em compras, você ganha 1 número da sorte.</p>
-          <p>• Cadastre-se aqui no site da promoção e pronto!</p>
-          <p>• Já está concorrendo a vale-compras de R$ 1.000.</p>
-          <p className="font-bold text-primary mt-4">Se você comprar com o cartão Fácil, você tem número da sorte em dobro!</p>
-        </div>
-      )
-    },
-    {
-      question: "Como me cadastrar para a sorteio?",
-      answer: "Após realizar suas compras, guarde seus cupons fiscais. Acesse nosso site ou aplicativo, faça seu cadastro informando seus dados pessoais e registre os números dos cupons fiscais das compras participantes. Você receberá automaticamente seus números da sorte."
-    },
-    {
-      question: "Qual período para participação para realizar compras válidas?",
-      answer: "O período de participação é de 13 de Outubro de 2025 até 15 de Novembro de 2025. Somente compras realizadas neste período serão válidas para a promoção."
-    }
-  ];
+  const { faqs } = useAdminContent();
+  
+  // Pega apenas as 3 primeiras FAQs para a home
+  const homeFaqs = faqs.slice(0, 3);
   
   return (
     <section className="py-16 bg-secondary">
@@ -41,7 +23,7 @@ const FAQSection = () => {
         
         <div className="max-w-3xl mx-auto space-y-4">
           <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
+            {homeFaqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}

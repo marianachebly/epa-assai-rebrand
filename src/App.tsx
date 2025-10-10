@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Regulamento from "./pages/Regulamento";
 import Ganhadores from "./pages/Ganhadores";
 import FAQ from "./pages/FAQ";
+import ListraAdmin from "./pages/ListraAdmin";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/regulamento" element={<Regulamento />} />
           <Route path="/ganhadores" element={<Ganhadores />} />
           <Route path="/perguntas-frequentes" element={<FAQ />} />
+          <Route path="/listra-admin" element={<ListraAdmin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

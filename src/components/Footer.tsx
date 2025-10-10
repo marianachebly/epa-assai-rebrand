@@ -7,12 +7,11 @@ const Footer = () => {
         <div className="text-center space-y-4">
           <img src={logoEpa} alt="EPA" className="h-16 w-auto mx-auto" />
           <p className="text-sm max-w-4xl mx-auto leading-relaxed">
-            Esta é uma promoção EPA válida para todas as lojas participantes. Consulte o regulamento completo 
-            para mais informações sobre a promoção, marcas participantes e condições de participação.
+            Esta é uma promoção do EPA Supermercados válida para todas as lojas participantes no período de 13 de Outubro à 15 de Novembro de 2025. Consulte o regulamento completo para mais informações sobre a promoção.
           </p>
           <div className="text-xs text-primary-foreground/80">
-            <p>CNPJ: 00.000.000/0001-00 | Razão Social: EPA Distribuidora S/A</p>
-            <p className="mt-2">© 2025 EPA - Todos os direitos reservados</p>
+            <p>01.928.075/0001-08 | Razão Social: DMA DISTRIBUIDORA S/A</p>
+            <p className="mt-2">© 2025 DMA Distribuidora - Todos os direitos reservados.</p>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ const Regulamento = () => {
       
       <main className="container mx-auto px-4 py-12">
         <div className="flex justify-center mb-8">
-          <img src={brasaoRepublica} alt="Brasão da República Federativa do Brasil" className="w-32 h-auto" />
+          <img src={brasaoRepublica} alt="Brasão da República Federativa do Brasil" className="w-20 h-auto" />
         </div>
         
         <h1 className="text-3xl md:text-4xl font-black text-center text-primary mb-8">

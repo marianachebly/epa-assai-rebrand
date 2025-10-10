@@ -81,22 +81,22 @@ const OffersSection = () => {
   const renderOfferCard = (offer: Offer) => (
     <Card key={offer.id} className="group overflow-hidden border border-border/20 hover:border-primary/20 transition-all duration-300 hover:shadow-lg bg-white rounded-2xl">
       <CardContent className="p-0">
-        <div className="aspect-square bg-white relative p-6 flex items-center justify-center">
+        <div className="aspect-square bg-white relative p-4 flex items-center justify-center">
           <img
             src={offer.image}
             alt={offer.name}
-            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+            className="w-[70%] h-[70%] object-contain transition-transform duration-300 group-hover:scale-105"
             onError={(e) => {
               e.currentTarget.src = "/placeholder.svg";
             }}
           />
         </div>
-        <div className="px-4 pb-6 pt-2 space-y-3 text-center bg-white">
-          <h3 className="font-medium text-sm leading-snug text-foreground line-clamp-2 min-h-[2.5rem]">
+        <div className="px-3 pb-4 pt-1 space-y-2 text-center bg-white">
+          <h3 className="font-medium text-xs leading-snug text-foreground line-clamp-2 min-h-[2rem]">
             {offer.name}
           </h3>
           {offer.price && (
-            <p className="text-3xl font-bold text-foreground">
+            <p className="text-2xl font-bold text-foreground">
               R$ {offer.price.toFixed(2).replace('.', ',')}
             </p>
           )}
@@ -143,7 +143,7 @@ const OffersSection = () => {
                     >
                       <CarouselContent className="-ml-2 md:-ml-4">
                         {bhOffers.map((offer) => (
-                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-[90%] sm:basis-[45%] md:basis-1/3 lg:basis-1/5">
+                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-[80%] sm:basis-[45%] md:basis-1/3 lg:basis-1/5">
                             {renderOfferCard(offer)}
                           </CarouselItem>
                         ))}
@@ -174,7 +174,7 @@ const OffersSection = () => {
                     >
                       <CarouselContent className="-ml-2 md:-ml-4">
                         {riodoceOffers.map((offer) => (
-                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-[90%] sm:basis-[45%] md:basis-1/3 lg:basis-1/5">
+                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-[80%] sm:basis-[45%] md:basis-1/3 lg:basis-1/5">
                             {renderOfferCard(offer)}
                           </CarouselItem>
                         ))}

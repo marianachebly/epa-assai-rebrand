@@ -102,34 +102,34 @@ const Header = () => {
               <SheetHeader>
                 <img src={logoEpa} alt="EPA" className="h-16 w-auto mx-auto mb-4" />
               </SheetHeader>
-              <div className="flex flex-col gap-4 mt-8">
+              <div className="flex flex-col gap-2 mt-8">
                 <button 
                   onClick={() => handleMenuClick('como-participar')} 
-                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-2"
+                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-1"
                 >
                   COMO PARTICIPAR
                 </button>
                 <button 
                   onClick={() => handleMenuClick('chances')} 
-                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-2"
+                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-1"
                 >
                   AUMENTE SUAS CHANCES
                 </button>
                 <button 
                   onClick={() => handleMenuClick('lojas')} 
-                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-2"
+                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-1"
                 >
                   LOJAS PARTICIPANTES
                 </button>
                 <button 
                   onClick={() => handleMenuClick('regulamento', '/regulamento')} 
-                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-2"
+                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-1"
                 >
                   REGULAMENTO
                 </button>
                 <button 
                   onClick={() => handleMenuClick('ganhadores', '/ganhadores')} 
-                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-2"
+                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-1"
                 >
                   GANHADORES
                 </button>

@@ -6,18 +6,23 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
-import { Lock, Save, LogOut, Eye, EyeOff } from "lucide-react";
+import { Lock, Save, LogOut, Eye, EyeOff, Plus, Trash2 } from "lucide-react";
 
 const ADMIN_PASSWORD = "EPA2025Admin";
 const STORAGE_KEY = "listra_admin_content";
 const AUTH_KEY = "listra_admin_auth";
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
 
 const ListraAdmin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [videoUrl, setVideoUrl] = useState("");
-  const [faqText, setFaqText] = useState("");
+  const [faqs, setFaqs] = useState<FAQ[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,14 +40,7 @@ const ListraAdmin = () => {
       try {
         const data = JSON.parse(stored);
         setVideoUrl(data.videoUrl || "");
-        
-        // Converte FAQs para formato de texto
-        if (data.faqs && Array.isArray(data.faqs)) {
-          const text = data.faqs
-            .map((faq: any) => `${faq.question}\t${faq.answer}`)
-            .join("\n");
-          setFaqText(text);
-        }
+        setFaqs(data.faqs || []);
       } catch (e) {
         console.error("Erro ao carregar conteúdo:", e);
       }
@@ -50,10 +48,7 @@ const ListraAdmin = () => {
       // Carrega valores padrão do JSON estático
       import("@/config/content.json").then((module) => {
         setVideoUrl(module.default.videoUrl);
-        const text = module.default.faqs
-          .map((faq: any) => `${faq.question}\t${faq.answer}`)
-          .join("\n");
-        setFaqText(text);
+        setFaqs(module.default.faqs || []);
       });
     }
   };
@@ -77,27 +72,33 @@ const ListraAdmin = () => {
     navigate("/");
   };
 
+  const handleAddFaq = () => {
+    setFaqs([...faqs, { question: "", answer: "" }]);
+  };
+
+  const handleRemoveFaq = (index: number) => {
+    setFaqs(faqs.filter((_, i) => i !== index));
+  };
+
+  const handleFaqChange = (index: number, field: 'question' | 'answer', value: string) => {
+    const newFaqs = [...faqs];
+    newFaqs[index][field] = value;
+    setFaqs(newFaqs);
+  };
+
   const handleSave = () => {
     try {
-      // Processa o texto das FAQs (formato: Pergunta TAB Resposta)
-      const lines = faqText.trim().split("\n");
-      const faqs = lines
-        .filter(line => line.trim())
-        .map(line => {
-          const parts = line.split("\t");
-          if (parts.length >= 2) {
-            return {
-              question: parts[0].trim(),
-              answer: parts[1].trim()
-            };
-          }
-          return null;
-        })
-        .filter(Boolean);
+      // Valida se há FAQs com pergunta e resposta preenchidas
+      const validFaqs = faqs.filter(faq => faq.question.trim() && faq.answer.trim());
+
+      if (validFaqs.length === 0) {
+        toast.error("Adicione pelo menos uma pergunta e resposta");
+        return;
+      }
 
       const content = {
         videoUrl: videoUrl.trim(),
-        faqs
+        faqs: validFaqs
       };
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(content));
@@ -105,7 +106,7 @@ const ListraAdmin = () => {
       // Dispara evento customizado para atualizar outros componentes
       window.dispatchEvent(new Event("content-updated"));
       
-      toast.success("Conteúdo salvo com sucesso!");
+      toast.success("Conteúdo salvo com sucesso! As alterações já estão visíveis no site.");
     } catch (e) {
       console.error("Erro ao salvar:", e);
       toast.error("Erro ao salvar o conteúdo");
@@ -196,27 +197,71 @@ const ListraAdmin = () => {
         </Card>
 
         {/* FAQs */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Perguntas Frequentes</CardTitle>
-            <CardDescription>
-              Cole do Excel: uma linha por pergunta, separando Pergunta e Resposta com TAB.
-              <br />
-              Formato: <code className="bg-muted px-1 py-0.5 rounded">Pergunta [TAB] Resposta</code>
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Textarea
-              value={faqText}
-              onChange={(e) => setFaqText(e.target.value)}
-              placeholder="Como participar?	Digite seu CPF e faça suas compras...&#10;Qual o período?	De 13/10 a 15/11..."
-              className="min-h-[300px] font-mono text-sm"
-            />
-            <p className="text-xs text-muted-foreground mt-2">
-              💡 Dica: Copie as células do Excel (Pergunta | Resposta) e cole aqui diretamente
-            </p>
-          </CardContent>
-        </Card>
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-2xl font-bold">Perguntas Frequentes</h2>
+              <p className="text-sm text-muted-foreground mt-1">
+                Adicione ou edite as perguntas e respostas
+              </p>
+            </div>
+            <Button onClick={handleAddFaq} variant="outline">
+              <Plus className="w-4 h-4 mr-2" />
+              Adicionar FAQ
+            </Button>
+          </div>
+
+          {faqs.length === 0 ? (
+            <Card>
+              <CardContent className="py-12 text-center">
+                <p className="text-muted-foreground">
+                  Nenhuma FAQ cadastrada. Clique em "Adicionar FAQ" para começar.
+                </p>
+              </CardContent>
+            </Card>
+          ) : (
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <Card key={index}>
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center justify-between">
+                      <CardTitle className="text-lg">FAQ #{index + 1}</CardTitle>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => handleRemoveFaq(index)}
+                        className="text-destructive hover:text-destructive"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor={`question-${index}`}>Pergunta</Label>
+                      <Input
+                        id={`question-${index}`}
+                        value={faq.question}
+                        onChange={(e) => handleFaqChange(index, 'question', e.target.value)}
+                        placeholder="Digite a pergunta..."
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor={`answer-${index}`}>Resposta</Label>
+                      <Textarea
+                        id={`answer-${index}`}
+                        value={faq.answer}
+                        onChange={(e) => handleFaqChange(index, 'answer', e.target.value)}
+                        placeholder="Digite a resposta..."
+                        className="min-h-[120px]"
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
+        </div>
 
         {/* Botão Salvar */}
         <Button onClick={handleSave} size="lg" className="w-full">

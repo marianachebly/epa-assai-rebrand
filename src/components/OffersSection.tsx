@@ -73,13 +73,8 @@ const OffersSection = () => {
       }
     } catch (err) {
       console.error("Erro ao obter localização:", err);
-      // Show a default store if location fails
-      const storesWithCoords = stores.filter(store => store.coordinates);
-      if (storesWithCoords.length > 0) {
-        // Pick the first store with coordinates as fallback
-        setNearestStore(storesWithCoords[0]);
-        console.log("Usando loja padrão:", storesWithCoords[0].name);
-      }
+      // Don't show any store if location fails
+      setNearestStore(null);
     }
   };
 

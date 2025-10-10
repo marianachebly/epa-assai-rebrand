@@ -53,6 +53,8 @@ const OffersSection = () => {
   const findNearestStore = async () => {
     try {
       const location = await getUserLocation();
+      console.log("Localização obtida:", location);
+      
       const storesWithDistances = stores
         .filter(store => store.coordinates)
         .map(store => ({
@@ -61,14 +63,18 @@ const OffersSection = () => {
         }))
         .sort((a, b) => a.distance - b.distance);
 
+      console.log("Lojas com distâncias:", storesWithDistances.slice(0, 3).map(s => ({
+        name: s.store.name,
+        distance: s.distance.toFixed(2) + "km"
+      })));
+
       if (storesWithDistances.length > 0) {
         setNearestStore(storesWithDistances[0].store);
       }
     } catch (err) {
-      console.error("Não foi possível obter localização:", err);
-      if (stores.length > 0 && stores[0].coordinates) {
-        setNearestStore(stores[0]);
-      }
+      console.error("Erro ao obter localização:", err);
+      // If location fails, don't show a default store
+      // User should allow location permission
     }
   };
 
@@ -156,14 +162,17 @@ const OffersSection = () => {
               />
               <div className="absolute inset-0 flex items-center justify-center md:justify-end pr-4 md:pr-12">
                 <div className="text-center md:text-left max-w-[220px]">
-                  <p className="text-lg md:text-xl font-bold text-foreground leading-tight">
+                  <p className="text-base md:text-lg font-bold text-foreground leading-tight">
                     Ei, Vizinho!
                   </p>
-                  <p className="text-sm md:text-base font-semibold text-foreground mt-1">
+                  <p className="text-xs md:text-sm font-semibold text-foreground mt-1">
                     Sua loja mais próxima é a:
                   </p>
-                  <p className="text-base md:text-lg font-black text-primary mt-1">
+                  <p className="text-sm md:text-base font-black text-primary mt-1 leading-tight">
                     {nearestStore.name}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-1 leading-tight">
+                    {nearestStore.address}
                   </p>
                 </div>
               </div>

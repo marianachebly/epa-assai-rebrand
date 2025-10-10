@@ -16,11 +16,10 @@ interface Content {
 const formatQuestion = (question: string): string => {
   // Converte para minúscula e capitaliza primeira letra
   const formatted = question.toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
-  // Mantém EPA, CPF e FUI sempre em maiúscula
+  // Mantém EPA e CPF sempre em maiúscula
   return formatted
     .replace(/\bepa\b/gi, 'EPA')
-    .replace(/\bcpf\b/gi, 'CPF')
-    .replace(/\bfui\b/gi, 'FUI');
+    .replace(/\bcpf\b/gi, 'CPF');
 };
 
 export const useAdminContent = () => {
@@ -29,6 +28,7 @@ export const useAdminContent = () => {
   const loadContent = () => {
     const stored = localStorage.getItem(STORAGE_KEY);
     let contentToUse: Content;
+    let shouldFormat = false; // Flag para saber se deve formatar
     
     if (stored) {
       try {
@@ -37,25 +37,29 @@ export const useAdminContent = () => {
         if ((defaultContent as Content).faqs.length > data.faqs.length) {
           console.log("Detectado conteúdo atualizado no JSON, usando nova versão");
           contentToUse = defaultContent as Content;
+          shouldFormat = true; // Formata apenas conteúdo padrão novo
         } else {
-          contentToUse = data;
+          contentToUse = data; // Conteúdo editado pelo admin, não formata
+          shouldFormat = false;
         }
       } catch (e) {
         console.error("Erro ao carregar conteúdo:", e);
         contentToUse = defaultContent as Content;
+        shouldFormat = true;
       }
     } else {
       contentToUse = defaultContent as Content;
+      shouldFormat = true; // Formata conteúdo padrão inicial
     }
     
-    // Formata as perguntas
-    const formattedContent = {
+    // Formata as perguntas APENAS se for conteúdo padrão
+    const formattedContent = shouldFormat ? {
       ...contentToUse,
       faqs: contentToUse.faqs.map(faq => ({
         ...faq,
         question: formatQuestion(faq.question)
       }))
-    };
+    } : contentToUse; // Se editado pelo admin, usa exatamente como está
     
     setContent(formattedContent);
   };

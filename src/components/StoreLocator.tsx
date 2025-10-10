@@ -37,9 +37,9 @@ const StoreLocator = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center gap-4 mb-8 px-4">
           <Link to="/regulamento" className="w-full max-w-md">
-            <Button variant="secondary" size="lg" className="gap-2 text-xs md:text-base w-full">
-              CONFIRA AQUI O REGULAMENTO DA PROMOÇÃO
-              <span className="text-xl md:text-2xl">→</span>
+            <Button variant="secondary" size="lg" className="gap-2 text-[0.65rem] md:text-base w-full py-4">
+              CONFIRA O REGULAMENTO DA PROMOÇÃO
+              <span className="text-lg md:text-2xl">→</span>
             </Button>
           </Link>
         </div>

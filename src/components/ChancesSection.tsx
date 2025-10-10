@@ -19,7 +19,7 @@ const ChancesSection = () => {
                   Comprou com o Cartão Fácil EPA?
                 </h3>
                 <p className="text-primary font-bold text-xl md:text-2xl">
-                  Ganhe números da sorte em dobro
+                  Ganhe números da sorte em dobro.
                 </p>
               </div>
               <div className="flex-shrink-0 h-[200px] md:h-[180px] overflow-hidden flex items-center">

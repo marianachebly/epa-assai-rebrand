@@ -12,8 +12,8 @@ const Footer = () => {
       {/* Tarja de Contato */}
       <section className="bg-[#e30613] py-12">
         <div className="container mx-auto px-4">
-          <div className="text-center space-y-8">
-            <h2 className="text-3xl md:text-4xl font-black text-white">
+          <div className="text-center space-y-10">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
               Ainda tem dúvidas?
             </h2>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">

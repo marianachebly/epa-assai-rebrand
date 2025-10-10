@@ -8,7 +8,7 @@ const FloatingBalloons = () => {
     { id: 6, left: "88%", top: "55%", delay: "0.5s", duration: "7s", size: "65px", color: "red" },
     { id: 7, left: "12%", top: "45%", delay: "2.5s", duration: "7s", size: "70px", color: "gold" },
     { id: 8, left: "35%", top: "65%", delay: "1s", duration: "6.5s", size: "80px", color: "gold" },
-    { id: 9, left: "70%", top: "10%", delay: "3.5s", duration: "8s", size: "75px", color: "gold" },
+    { id: 9, left: "85%", top: "5%", delay: "3.5s", duration: "8s", size: "75px", color: "gold" },
   ];
 
   return (
@@ -23,7 +23,7 @@ const FloatingBalloons = () => {
             animationDelay: balloon.delay,
             animationDuration: balloon.duration,
             fontSize: balloon.size,
-            filter: balloon.color === "gold" ? "hue-rotate(45deg) saturate(2)" : "none",
+            filter: balloon.color === "gold" ? "hue-rotate(30deg) brightness(0.65) saturate(1.8)" : "none",
           }}
         >
           🎈

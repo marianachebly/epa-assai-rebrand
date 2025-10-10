@@ -22,6 +22,12 @@ interface Offer {
   discount?: string;
 }
 
+interface OffersResponse {
+  expires: string;
+  region_id: number;
+  data: Offer[];
+}
+
 const API_ENDPOINTS = {
   riodoce: "https://adm.epa.com.br/api/v1/4/top-offers",
   belohorizonte: "https://adm.epa.com.br/api/v1/2/top-offers",
@@ -30,6 +36,8 @@ const API_ENDPOINTS = {
 const OffersSection = () => {
   const [riodoceOffers, setRiodoceOffers] = useState<Offer[]>([]);
   const [bhOffers, setBhOffers] = useState<Offer[]>([]);
+  const [riodoceExpires, setRiodoceExpires] = useState<string>("");
+  const [bhExpires, setBhExpires] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("belohorizonte");
 
@@ -46,13 +54,15 @@ const OffersSection = () => {
       ]);
 
       if (riodoceResponse.ok) {
-        const riodoceData = await riodoceResponse.json();
+        const riodoceData: OffersResponse = await riodoceResponse.json();
         setRiodoceOffers(Array.isArray(riodoceData) ? riodoceData : riodoceData.data || []);
+        setRiodoceExpires(riodoceData.expires || "");
       }
 
       if (bhResponse.ok) {
-        const bhData = await bhResponse.json();
+        const bhData: OffersResponse = await bhResponse.json();
         setBhOffers(Array.isArray(bhData) ? bhData : bhData.data || []);
+        setBhExpires(bhData.expires || "");
       }
     } catch (error) {
       console.error("Erro ao carregar ofertas:", error);
@@ -60,6 +70,12 @@ const OffersSection = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const formatExpiryDate = (dateString: string) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" });
   };
 
   const renderOfferCard = (offer: Offer) => (
@@ -128,23 +144,30 @@ const OffersSection = () => {
             <>
               <TabsContent value="belohorizonte">
                 {bhOffers.length > 0 ? (
-                  <Carousel
-                    opts={{
-                      align: "start",
-                      loop: true,
-                    }}
-                    className="w-full max-w-7xl mx-auto px-12"
-                  >
-                    <CarouselContent>
-                      {bhOffers.map((offer) => (
-                        <CarouselItem key={offer.id} className="md:basis-1/2 lg:basis-1/4">
-                          {renderOfferCard(offer)}
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
-                  </Carousel>
+                  <div className="space-y-4">
+                    <Carousel
+                      opts={{
+                        align: "start",
+                        loop: true,
+                      }}
+                      className="w-full max-w-7xl mx-auto px-12"
+                    >
+                      <CarouselContent>
+                        {bhOffers.map((offer) => (
+                          <CarouselItem key={offer.id} className="md:basis-1/2 lg:basis-1/4">
+                            {renderOfferCard(offer)}
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious />
+                      <CarouselNext />
+                    </Carousel>
+                    {bhExpires && (
+                      <p className="text-center text-sm text-muted-foreground mt-4">
+                        Válidas até dia {formatExpiryDate(bhExpires)}, na REDE EPA DE BELO HORIZONTE E REGIÃO (Exceto EPA Premium).
+                      </p>
+                    )}
+                  </div>
                 ) : (
                   <div className="text-center py-12 text-muted-foreground">
                     Nenhuma oferta disponível no momento
@@ -154,23 +177,30 @@ const OffersSection = () => {
 
               <TabsContent value="riodoce">
                 {riodoceOffers.length > 0 ? (
-                  <Carousel
-                    opts={{
-                      align: "start",
-                      loop: true,
-                    }}
-                    className="w-full max-w-7xl mx-auto px-12"
-                  >
-                    <CarouselContent>
-                      {riodoceOffers.map((offer) => (
-                        <CarouselItem key={offer.id} className="md:basis-1/2 lg:basis-1/4">
-                          {renderOfferCard(offer)}
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
-                  </Carousel>
+                  <div className="space-y-4">
+                    <Carousel
+                      opts={{
+                        align: "start",
+                        loop: true,
+                      }}
+                      className="w-full max-w-7xl mx-auto px-12"
+                    >
+                      <CarouselContent>
+                        {riodoceOffers.map((offer) => (
+                          <CarouselItem key={offer.id} className="md:basis-1/2 lg:basis-1/4">
+                            {renderOfferCard(offer)}
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious />
+                      <CarouselNext />
+                    </Carousel>
+                    {riodoceExpires && (
+                      <p className="text-center text-sm text-muted-foreground mt-4">
+                        Válidas até dia {formatExpiryDate(riodoceExpires)}, na REDE EPA DE RIO DOCE E MUCURI (Exceto EPA Premium).
+                      </p>
+                    )}
+                  </div>
                 ) : (
                   <div className="text-center py-12 text-muted-foreground">
                     Nenhuma oferta disponível no momento

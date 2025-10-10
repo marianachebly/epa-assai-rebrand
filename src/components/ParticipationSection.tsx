@@ -1,5 +1,6 @@
 import { ShoppingCart, Ticket, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import numeroSorteEpa from "@/assets/numerosorte-epa.png";
 const ParticipationSection = () => {
   return <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
@@ -26,6 +27,11 @@ const ParticipationSection = () => {
             <p className="text-secondary-foreground font-semibold text-xl">
               A cada <span className="font-bold text-primary">R$ 100,00</span> em compras, você ganha 1 número da sorte.
             </p>
+            <img 
+              src={numeroSorteEpa} 
+              alt="R$ 100 = 1 número da sorte" 
+              className="w-48 h-auto mx-auto mt-6"
+            />
           </div>
 
           {/* Card 3 */}

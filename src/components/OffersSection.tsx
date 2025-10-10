@@ -79,40 +79,27 @@ const OffersSection = () => {
   };
 
   const renderOfferCard = (offer: Offer) => (
-    <Card key={offer.id} className="overflow-hidden hover:shadow-xl transition-shadow">
+    <Card key={offer.id} className="group overflow-hidden border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg bg-card">
       <CardContent className="p-0">
-        <div className="aspect-square bg-muted relative">
+        <div className="aspect-square bg-background relative p-4 flex items-center justify-center">
           <img
             src={offer.image}
             alt={offer.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
             onError={(e) => {
               e.currentTarget.src = "/placeholder.svg";
             }}
           />
-          {offer.discount && (
-            <div className="absolute top-2 right-2 bg-destructive text-destructive-foreground px-3 py-1 rounded-full text-sm font-bold">
-              {offer.discount}
-            </div>
-          )}
         </div>
-        <div className="p-4 space-y-2">
-          <h3 className="font-bold text-lg line-clamp-2 min-h-[3.5rem]">{offer.name}</h3>
-          {offer.description && (
-            <p className="text-sm text-muted-foreground line-clamp-2">{offer.description}</p>
+        <div className="p-4 space-y-3 text-center">
+          <h3 className="font-semibold text-sm leading-tight min-h-[2.5rem] text-foreground line-clamp-2">
+            {offer.name}
+          </h3>
+          {offer.price && (
+            <p className="text-2xl font-black text-foreground">
+              R$ {offer.price.toFixed(2)}
+            </p>
           )}
-          <div className="flex items-center gap-2">
-            {offer.old_price && (
-              <span className="text-sm text-muted-foreground line-through">
-                R$ {offer.old_price.toFixed(2)}
-              </span>
-            )}
-            {offer.price && (
-              <span className="text-2xl font-black text-primary">
-                R$ {offer.price.toFixed(2)}
-              </span>
-            )}
-          </div>
         </div>
       </CardContent>
     </Card>
@@ -150,17 +137,17 @@ const OffersSection = () => {
                         align: "start",
                         loop: true,
                       }}
-                      className="w-full max-w-7xl mx-auto px-12"
+                      className="w-full max-w-6xl mx-auto px-12"
                     >
-                      <CarouselContent>
+                      <CarouselContent className="-ml-2 md:-ml-4">
                         {bhOffers.map((offer) => (
-                          <CarouselItem key={offer.id} className="md:basis-1/2 lg:basis-1/4">
+                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/5">
                             {renderOfferCard(offer)}
                           </CarouselItem>
                         ))}
                       </CarouselContent>
-                      <CarouselPrevious />
-                      <CarouselNext />
+                      <CarouselPrevious className="left-0" />
+                      <CarouselNext className="right-0" />
                     </Carousel>
                     {bhExpires && (
                       <p className="text-center text-sm text-muted-foreground mt-4">
@@ -183,17 +170,17 @@ const OffersSection = () => {
                         align: "start",
                         loop: true,
                       }}
-                      className="w-full max-w-7xl mx-auto px-12"
+                      className="w-full max-w-6xl mx-auto px-12"
                     >
-                      <CarouselContent>
+                      <CarouselContent className="-ml-2 md:-ml-4">
                         {riodoceOffers.map((offer) => (
-                          <CarouselItem key={offer.id} className="md:basis-1/2 lg:basis-1/4">
+                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/5">
                             {renderOfferCard(offer)}
                           </CarouselItem>
                         ))}
                       </CarouselContent>
-                      <CarouselPrevious />
-                      <CarouselNext />
+                      <CarouselPrevious className="left-0" />
+                      <CarouselNext className="right-0" />
                     </Carousel>
                     {riodoceExpires && (
                       <p className="text-center text-sm text-muted-foreground mt-4">

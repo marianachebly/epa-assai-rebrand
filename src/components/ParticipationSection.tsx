@@ -18,7 +18,7 @@ const ParticipationSection = () => {
               Faça suas compras nas lojas <span className="font-bold text-primary">EPA</span> de Minas Gerais e digite seu CPF no caixa.
             </p>
             <p className="text-primary font-bold text-lg mt-4">
-              Não se esqueça de digitar o CPF antes de passar suas compras
+              Não se esqueça de digitar o CPF antes de passar suas compras.
             </p>
           </div>
           

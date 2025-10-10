@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-10">
             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-              Ainda tem dúvidas?
+              Precisa de algum suporte?
             </h2>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
               <Button 

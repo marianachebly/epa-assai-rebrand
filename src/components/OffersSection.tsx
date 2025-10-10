@@ -145,41 +145,13 @@ const OffersSection = () => {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
-          <div className="flex-1">
-            <h2 className="text-4xl md:text-5xl font-black text-center md:text-left mb-4">
-              Ofertas Imperdíveis
-            </h2>
-            <p className="text-center md:text-left text-muted-foreground">
-              Confira as melhores ofertas da semana
-            </p>
-          </div>
-          
-          {nearestStore && (
-            <div className="relative flex-shrink-0">
-              <img 
-                src={izaLojaImage} 
-                alt="Iza" 
-                className="w-full max-w-[400px] h-auto"
-              />
-              <div className="absolute inset-0 flex items-center justify-center md:justify-end pr-4 md:pr-12">
-                <div className="text-center md:text-left max-w-[220px]">
-                  <p className="text-base md:text-lg font-bold text-foreground leading-tight">
-                    Ei, Vizinho!
-                  </p>
-                  <p className="text-xs md:text-sm font-semibold text-foreground mt-1">
-                    Sua loja mais próxima é a:
-                  </p>
-                  <p className="text-sm md:text-base font-black text-primary mt-1 leading-tight">
-                    {nearestStore.name}
-                  </p>
-                  <p className="text-xs text-muted-foreground mt-1 leading-tight">
-                    {nearestStore.address}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
+        <div className="flex-1">
+          <h2 className="text-4xl md:text-5xl font-black text-center mb-4">
+            Ofertas Imperdíveis
+          </h2>
+          <p className="text-center text-muted-foreground">
+            Confira as melhores ofertas da semana
+          </p>
         </div>
 
         <Tabs defaultValue="belohorizonte" value={activeTab} onValueChange={setActiveTab} className="w-full">

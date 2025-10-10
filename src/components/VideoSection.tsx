@@ -1,10 +1,12 @@
-import { Play } from "lucide-react";
+import { Play, X } from "lucide-react";
 import { useState } from "react";
 import {
   Dialog,
   DialogContent,
   DialogTitle,
+  DialogClose,
 } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 const VideoSection = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -33,6 +35,16 @@ const VideoSection = () => {
       <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
         <DialogContent className="max-w-4xl p-0">
           <DialogTitle className="sr-only">Vídeo da campanha EPA</DialogTitle>
+          <DialogClose asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute right-4 top-4 z-50 rounded-full bg-background/80 hover:bg-background"
+            >
+              <X className="h-6 w-6" />
+              <span className="sr-only">Fechar</span>
+            </Button>
+          </DialogClose>
           <div className="aspect-video">
             <iframe
               width="100%"

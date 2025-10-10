@@ -3,6 +3,7 @@ import CountdownBanner from "@/components/CountdownBanner";
 import HeroSection from "@/components/HeroSection";
 import ParticipationSection from "@/components/ParticipationSection";
 import ChancesSection from "@/components/ChancesSection";
+import OffersSection from "@/components/OffersSection";
 import VideoSection from "@/components/VideoSection";
 import StoreLocator from "@/components/StoreLocator";
 import FAQSection from "@/components/FAQSection";
@@ -19,6 +20,9 @@ const Index = () => {
       </div>
       <div id="chances">
         <ChancesSection />
+      </div>
+      <div id="ofertas">
+        <OffersSection />
       </div>
       <div id="aniversario">
         <VideoSection />

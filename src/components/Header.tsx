@@ -100,7 +100,16 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="bg-background">
               <SheetHeader>
-                <img src={logoEpa} alt="EPA" className="h-16 w-auto mx-auto mb-4" />
+                <Link 
+                  to="/" 
+                  onClick={() => {
+                    setOpen(false);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="block"
+                >
+                  <img src={logoEpa} alt="EPA" className="h-16 w-auto mx-auto mb-4 cursor-pointer hover:opacity-80 transition-opacity" />
+                </Link>
               </SheetHeader>
               <div className="flex flex-col gap-2 mt-8">
                 <button 

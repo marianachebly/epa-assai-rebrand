@@ -22,7 +22,7 @@ const ChancesSection = () => {
                   Ganhe números da sorte em dobro.
                 </p>
               </div>
-              <div className="flex-shrink-0 -mt-12 md:mt-0 h-[180px] md:h-[180px] overflow-visible md:overflow-hidden flex items-start md:items-center">
+              <div className="flex-shrink-0 -mt-6 md:mt-0 h-[180px] md:h-[180px] overflow-visible md:overflow-hidden flex items-start md:items-center">
                 <img 
                   src={numeroSorte} 
                   alt="Números da sorte em dobro" 

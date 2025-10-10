@@ -7,6 +7,7 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import videoThumbnail from "@/assets/video-thumbnail.png";
 
 const VideoSection = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -23,7 +24,12 @@ const VideoSection = () => {
             className="relative aspect-video bg-primary rounded-3xl overflow-hidden shadow-2xl group cursor-pointer"
             onClick={() => setIsVideoOpen(true)}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+            <img 
+              src={videoThumbnail} 
+              alt="Aniversário EPA - Meio Milhão" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/30 transition-colors">
               <div className="bg-background rounded-full w-24 h-24 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">
                 <Play className="w-12 h-12 text-primary fill-primary" />
               </div>

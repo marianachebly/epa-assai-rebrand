@@ -1,4 +1,5 @@
-import { Gift, Smartphone, ShoppingBag } from "lucide-react";
+import { Gift } from "lucide-react";
+import izaCartaoFacil from "@/assets/iza_cartao_facil.png";
 
 const ChancesSection = () => {
   return (
@@ -10,35 +11,25 @@ const ChancesSection = () => {
           <Gift className="w-12 h-12" />
         </h2>
         
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="bg-background rounded-2xl p-6 text-center shadow-xl">
-            <div className="mb-4">
-              <Gift className="w-16 h-16 text-primary mx-auto" />
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-background rounded-3xl p-8 md:p-12 shadow-2xl">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                  Comprou com o Cartão Fácil EPA?
+                </h3>
+                <p className="text-primary font-bold text-2xl md:text-3xl">
+                  Ganhe números da sorte em dobro!
+                </p>
+              </div>
+              <div className="flex-shrink-0">
+                <img 
+                  src={izaCartaoFacil} 
+                  alt="Cartão Fácil EPA" 
+                  className="w-64 md:w-80 h-auto"
+                />
+              </div>
             </div>
-            <h3 className="text-lg font-black text-foreground mb-2">
-              Compre produtos<br />das marcas participantes
-            </h3>
-            <p className="text-primary font-bold text-xl">+1 número da sorte</p>
-          </div>
-          
-          <div className="bg-background rounded-2xl p-6 text-center shadow-xl">
-            <div className="mb-4">
-              <Smartphone className="w-16 h-16 text-primary mx-auto" />
-            </div>
-            <h3 className="text-lg font-black text-foreground mb-2">
-              Compre R$ 100 ou mais<br />em uma única compra
-            </h3>
-            <p className="text-primary font-bold text-xl">+1 número da sorte</p>
-          </div>
-          
-          <div className="bg-background rounded-2xl p-6 text-center shadow-xl">
-            <div className="mb-4">
-              <ShoppingBag className="w-16 h-16 text-primary mx-auto" />
-            </div>
-            <h3 className="text-lg font-black text-foreground mb-2">
-              Pegue seu chip<br />do EPA no caixa
-            </h3>
-            <p className="text-primary font-bold text-xl">+1 número único</p>
           </div>
         </div>
       </div>

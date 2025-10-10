@@ -79,7 +79,7 @@ const OffersSection = () => {
   };
 
   const renderOfferCard = (offer: Offer) => (
-    <Card key={offer.id} className="group overflow-hidden border border-border/20 hover:border-primary/20 transition-all duration-300 hover:shadow-lg bg-white rounded-2xl">
+    <Card key={offer.id} className="group overflow-hidden border border-border/30 hover:border-primary/30 transition-all duration-300 shadow-md hover:shadow-xl bg-white rounded-2xl">
       <CardContent className="p-0">
         <div className="aspect-square bg-white relative p-4 flex items-center justify-center">
           <img

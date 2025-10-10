@@ -1,5 +1,5 @@
 import { Gift } from "lucide-react";
-import izaCartaoFacil from "@/assets/iza_cartao_facil.png";
+import izaCartaoFacil from "@/assets/iza_pose_cartao.png";
 
 const ChancesSection = () => {
   return (

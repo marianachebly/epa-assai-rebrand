@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import personEpa from "@/assets/person-epa.png";
-import logoAniversario from "@/assets/logo-aniversario-completa.png";
+import logoCampanha from "@/assets/logo-epa-campanha.png";
 import FloatingBalloons from "@/components/FloatingBalloons";
 const HeroSection = () => {
   return <section className="relative min-h-[600px] overflow-hidden" style={{
@@ -14,7 +14,7 @@ const HeroSection = () => {
           <div className="text-primary-foreground space-y-6">
             <div className="inline-block bg-secondary text-secondary-foreground px-4 py-2 rounded-full font-bold text-sm">13 de Outubro à 15 de Novembro de 2025</div>
             
-            <img src={logoAniversario} alt="EPA 66 Anos - Meio Milhão em vales-compra de R$ 1.000" className="w-full max-w-md" />
+            <img src={logoCampanha} alt="EPA 66 Anos - Meio Milhão em vales-compra de R$ 1.000" className="w-full max-w-2xl" />
           </div>
           
           <div className="flex flex-col items-center space-y-0">

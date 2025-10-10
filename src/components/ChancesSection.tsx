@@ -12,21 +12,21 @@ const ChancesSection = () => {
         </h2>
         
         <div className="max-w-5xl mx-auto">
-          <div className="bg-background rounded-3xl p-8 md:p-12 shadow-2xl">
-            <div className="flex flex-col md:flex-row items-center gap-8">
+          <div className="bg-background rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden">
+            <div className="flex flex-col md:flex-row items-center gap-6 max-h-[200px] md:max-h-[180px]">
               <div className="flex-1 text-center md:text-left">
-                <h3 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                <h3 className="text-2xl md:text-3xl font-black text-foreground mb-2">
                   Comprou com o Cartão Fácil EPA?
                 </h3>
-                <p className="text-primary font-bold text-2xl md:text-3xl">
+                <p className="text-primary font-bold text-xl md:text-2xl">
                   Ganhe números da sorte em dobro!
                 </p>
               </div>
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 h-[200px] md:h-[180px] overflow-hidden flex items-center">
                 <img 
                   src={izaCartaoFacil} 
                   alt="Cartão Fácil EPA" 
-                  className="w-64 md:w-80 h-auto"
+                  className="w-48 md:w-64 h-auto object-cover"
                 />
               </div>
             </div>

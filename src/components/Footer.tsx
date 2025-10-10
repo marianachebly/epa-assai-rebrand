@@ -1,4 +1,4 @@
-import logoRodape from "@/assets/logo-rodape.png";
+import logoRodape from "@/assets/rodape-logo.png";
 
 const Footer = () => {
   return (

@@ -1,4 +1,5 @@
 import logoRodape from "@/assets/rodape-logo.png";
+import logoBy from "@/assets/logo-by.png";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -40,6 +41,12 @@ const Footer = () => {
             <div className="text-xs text-primary-foreground/80">
               <p>01.928.075/0001-08 | Razão Social: DMA DISTRIBUIDORA S/A</p>
               <p className="mt-2">© 2025 DMA Distribuidora - Todos os direitos reservados.</p>
+            </div>
+            
+            {/* Badge By */}
+            <div className="flex items-center justify-center gap-1 mt-6">
+              <span className="text-primary-foreground/70 text-xs font-light">by</span>
+              <img src={logoBy} alt="Logo" className="h-4 w-auto" />
             </div>
           </div>
         </div>

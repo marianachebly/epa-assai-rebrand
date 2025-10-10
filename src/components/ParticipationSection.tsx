@@ -41,8 +41,10 @@ const ParticipationSection = () => {
 
         {/* Botão centralizado */}
         <div className="flex justify-center mt-12">
-          <Button size="lg" className="text-xl px-8 py-6 font-bold">
-            Cadastre-se agora e concorra!
+          <Button size="lg" className="text-xl px-8 py-6 font-bold" asChild>
+            <a href="https://supermercadoepa.crescevendas.com/registro" target="_blank" rel="noopener noreferrer">
+              Cadastre-se agora e concorra!
+            </a>
           </Button>
         </div>
       </div>

@@ -17,7 +17,7 @@ const formatQuestion = (question: string): string => {
   // Converte para minúscula e capitaliza primeira letra
   const formatted = question.toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
   // Mantém EPA sempre em maiúscula
-  return formatted.replace(/\bepa\b/gi, 'EPA');
+  return formatted.replace(/\bepa\b/gi, 'EPA').replace(/\bcpf\b/gi, 'CPF');
 }
 
 export const useAdminContent = () => {

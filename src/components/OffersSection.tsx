@@ -79,24 +79,24 @@ const OffersSection = () => {
   };
 
   const renderOfferCard = (offer: Offer) => (
-    <Card key={offer.id} className="group overflow-hidden border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg bg-card">
+    <Card key={offer.id} className="group overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-card rounded-2xl">
       <CardContent className="p-0">
-        <div className="aspect-square bg-background relative p-4 flex items-center justify-center">
+        <div className="aspect-square bg-gradient-to-br from-background to-muted relative p-3 flex items-center justify-center">
           <img
             src={offer.image}
             alt={offer.name}
-            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+            className="w-[80%] h-[80%] object-contain transition-transform duration-300 group-hover:scale-110"
             onError={(e) => {
               e.currentTarget.src = "/placeholder.svg";
             }}
           />
         </div>
-        <div className="p-3 md:p-4 space-y-2 md:space-y-3 text-center">
-          <h3 className="font-semibold text-xs md:text-sm leading-tight min-h-[2rem] md:min-h-[2.5rem] text-foreground line-clamp-2">
+        <div className="p-3 md:p-4 space-y-2 text-center bg-card">
+          <h3 className="font-bold text-xs md:text-sm leading-tight min-h-[2rem] md:min-h-[2.5rem] text-foreground line-clamp-2">
             {offer.name}
           </h3>
           {offer.price && (
-            <p className="text-xl md:text-2xl font-black text-foreground">
+            <p className="text-2xl md:text-3xl font-black text-primary">
               R$ {offer.price.toFixed(2)}
             </p>
           )}
@@ -137,19 +137,17 @@ const OffersSection = () => {
                     <Carousel
                       opts={{
                         align: "start",
-                        loop: true,
+                        loop: false,
                       }}
-                      className="w-full max-w-6xl mx-auto px-12"
+                      className="w-full max-w-6xl mx-auto"
                     >
                       <CarouselContent className="-ml-2 md:-ml-4">
                         {bhOffers.map((offer) => (
-                           <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-full md:basis-1/3 lg:basis-1/5">
+                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-[85%] md:basis-1/3 lg:basis-1/5">
                             {renderOfferCard(offer)}
                           </CarouselItem>
                         ))}
                       </CarouselContent>
-                      <CarouselPrevious className="left-0" />
-                      <CarouselNext className="right-0" />
                     </Carousel>
                     {bhExpires && (
                       <p className="text-center text-sm text-muted-foreground mt-4">
@@ -170,19 +168,17 @@ const OffersSection = () => {
                     <Carousel
                       opts={{
                         align: "start",
-                        loop: true,
+                        loop: false,
                       }}
-                      className="w-full max-w-6xl mx-auto px-12"
+                      className="w-full max-w-6xl mx-auto"
                     >
                       <CarouselContent className="-ml-2 md:-ml-4">
                         {riodoceOffers.map((offer) => (
-                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-full md:basis-1/3 lg:basis-1/5">
+                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-[85%] md:basis-1/3 lg:basis-1/5">
                             {renderOfferCard(offer)}
                           </CarouselItem>
                         ))}
                       </CarouselContent>
-                      <CarouselPrevious className="left-0" />
-                      <CarouselNext className="right-0" />
                     </Carousel>
                     {riodoceExpires && (
                       <p className="text-center text-sm text-muted-foreground mt-4">

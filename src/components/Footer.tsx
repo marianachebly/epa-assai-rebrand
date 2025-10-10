@@ -4,7 +4,7 @@ import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
-  const whatsappNumber = "5531999999999"; // Substitua pelo número correto
+  const whatsappNumber = "5531999926521";
   const whatsappMessage = "Olá! Tenho dúvidas sobre a promoção EPA 66 anos.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 

@@ -14,7 +14,7 @@ const ParticipationSection = () => {
               <ShoppingCart className="w-12 h-12 text-secondary" />
             </div>
             <p className="text-secondary-foreground font-semibold text-lg">
-              Faça suas compras nas lojas EPA de Minas Gerais.
+              Faça suas compras nas lojas <span className="font-bold">EPA de Minas Gerais</span>.
             </p>
           </div>
           
@@ -24,7 +24,7 @@ const ParticipationSection = () => {
               <Ticket className="w-12 h-12 text-secondary" />
             </div>
             <p className="text-secondary-foreground font-semibold text-lg">
-              A cada R$ 100 em compras, você ganha 1 número da sorte.
+              A cada <span className="font-bold">R$ 100,00</span> em compras, você ganha 1 número da sorte.
             </p>
           </div>
 
@@ -34,7 +34,7 @@ const ParticipationSection = () => {
               <Gift className="w-12 h-12 text-secondary" />
             </div>
             <p className="text-secondary-foreground font-semibold text-lg">
-              Cadastre-se no site da promoção e pronto! Já está concorrendo a vale-compras de MIL REAIS!
+              Cadastre-se no site da promoção e pronto! Já está concorrendo a <span className="font-bold">vale-compras de MIL REAIS!</span>
             </p>
           </div>
         </div>

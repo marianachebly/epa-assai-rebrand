@@ -1,4 +1,5 @@
-import { ShoppingCart, UserPlus } from "lucide-react";
+import { ShoppingCart, Ticket, Gift } from "lucide-react";
+import { Button } from "@/components/ui/button";
 const ParticipationSection = () => {
   return <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
@@ -6,39 +7,43 @@ const ParticipationSection = () => {
           Para participar é fácil!
         </h2>
         
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {/* Card 1 */}
           <div className="bg-secondary rounded-3xl p-8 text-center shadow-2xl transform hover:scale-105 transition-transform">
             <div className="bg-primary rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
               <ShoppingCart className="w-12 h-12 text-secondary" />
             </div>
-            <h3 className="text-2xl font-black text-secondary-foreground mb-4">
-              Compre R$20 ou mais
-            </h3>
-            <p className="text-secondary-foreground font-semibold">
-              e informe seu CPF ou CNPJ no caixa.
+            <p className="text-secondary-foreground font-semibold text-lg">
+              Faça suas compras nas lojas EPA de Minas Gerais.
             </p>
-            <div className="mt-6 bg-primary text-primary-foreground rounded-full px-6 py-3 inline-block font-bold">
-              COMPRAS GRÁTIS<br />ATÉ R$20,00
-            </div>
           </div>
           
+          {/* Card 2 */}
           <div className="bg-secondary rounded-3xl p-8 text-center shadow-2xl transform hover:scale-105 transition-transform">
             <div className="bg-primary rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
-              <UserPlus className="w-12 h-12 text-secondary" />
+              <Ticket className="w-12 h-12 text-secondary" />
             </div>
-            <h3 className="text-2xl font-black text-secondary-foreground mb-4">
-              Cadastre-se aqui
-            </h3>
-            <p className="text-secondary-foreground font-semibold">
-              Informe seus dados e receba seu cupom
-            </p>
-            <div className="mt-6 bg-primary text-primary-foreground rounded-full px-6 py-3 inline-block font-bold text-3xl">
-              R$ 1 MILHÃO
-            </div>
-            <p className="mt-2 text-secondary-foreground font-bold text-sm">
-              em certificado + cupons diários
+            <p className="text-secondary-foreground font-semibold text-lg">
+              A cada R$ 100 em compras, você ganha 1 número da sorte.
             </p>
           </div>
+
+          {/* Card 3 */}
+          <div className="bg-secondary rounded-3xl p-8 text-center shadow-2xl transform hover:scale-105 transition-transform">
+            <div className="bg-primary rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
+              <Gift className="w-12 h-12 text-secondary" />
+            </div>
+            <p className="text-secondary-foreground font-semibold text-lg">
+              Cadastre-se no site da promoção e pronto! Já está concorrendo a vale-compras de R$ 1.000.
+            </p>
+          </div>
+        </div>
+
+        {/* Botão centralizado */}
+        <div className="flex justify-center mt-12">
+          <Button size="lg" className="text-xl px-8 py-6 font-bold">
+            Cadastre-se agora e concorra!
+          </Button>
         </div>
       </div>
     </section>;

@@ -4,7 +4,7 @@ const CountdownBanner = () => {
   useEffect(() => {
     const calculateDays = () => {
       const today = new Date();
-      const endDate = new Date("2025-12-31");
+      const endDate = new Date("2025-11-15");
       const diffTime = endDate.getTime() - today.getTime();
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       setDaysLeft(diffDays > 0 ? diffDays : 0);

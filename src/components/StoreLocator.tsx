@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Link } from "react-router-dom";
 import {
   Select,
   SelectContent,
@@ -35,10 +36,12 @@ const StoreLocator = () => {
     <section className="py-16 bg-primary">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center gap-4 mb-8">
-          <Button variant="secondary" size="lg" className="gap-2">
-            CONFIRA AQUI O REGULAMENTO DA PROMOÇÃO
-            <span className="text-2xl">→</span>
-          </Button>
+          <Link to="/regulamento">
+            <Button variant="secondary" size="lg" className="gap-2">
+              CONFIRA AQUI O REGULAMENTO DA PROMOÇÃO
+              <span className="text-2xl">→</span>
+            </Button>
+          </Link>
         </div>
         
         <h2 className="text-4xl md:text-5xl font-black text-center text-secondary mb-12">

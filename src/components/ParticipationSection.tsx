@@ -34,7 +34,7 @@ const ParticipationSection = () => {
               <Gift className="w-12 h-12 text-secondary" />
             </div>
             <p className="text-secondary-foreground font-semibold text-lg">
-              Cadastre-se no site da promoção e pronto! Já está concorrendo a vale-compras de R$ 1.000.
+              Cadastre-se no site da promoção e pronto! Já está concorrendo a vale-compras de MIL REAIS!
             </p>
           </div>
         </div>

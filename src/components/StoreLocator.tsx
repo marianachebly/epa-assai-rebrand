@@ -34,8 +34,8 @@ const StoreLocator = () => {
 
   return (
     <section className="py-16 bg-primary">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center gap-4 mb-8 px-4">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex items-center justify-center gap-4 mb-8">
           <Link to="/regulamento" className="w-full max-w-md">
             <Button variant="secondary" size="lg" className="gap-2 text-[0.65rem] md:text-base w-full py-4">
               CONFIRA O REGULAMENTO DA PROMOÇÃO

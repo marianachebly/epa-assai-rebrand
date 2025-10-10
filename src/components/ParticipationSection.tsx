@@ -2,8 +2,9 @@ import { ShoppingCart, Ticket, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import numeroSorteEpa from "@/assets/numerosorte-epa.png";
 const ParticipationSection = () => {
-  return <section className="py-16 bg-background">
-      <div className="container mx-auto px-4">
+  return (
+    <section className="py-16 bg-background">
+      <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-4xl md:text-5xl font-black text-center text-foreground mb-12">
           Para participar é fácil!
         </h2>
@@ -54,6 +55,7 @@ const ParticipationSection = () => {
           </Button>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
 export default ParticipationSection;

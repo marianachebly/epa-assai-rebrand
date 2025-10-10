@@ -20,7 +20,16 @@ const FAQ = () => {
   const faqs = [
     {
       question: "Como faço para participar da Promoção?",
-      answer: "Para participar, você deve realizar compras nos supermercados EPA participantes durante o período da promoção (13 de Outubro a 15 de Novembro de 2025). A cada R$ 1.000,00 em compras de produtos participantes, você ganha um número da sorte para concorrer ao prêmio de meio milhão de reais."
+      answer: (
+        <div className="space-y-2">
+          <p>• Faça suas compras nas lojas EPA de Minas Gerais.</p>
+          <p>• Digite seu CPF antes de passar suas compras!</p>
+          <p>• A cada R$ 100 em compras, você ganha 1 número da sorte.</p>
+          <p>• Cadastre-se aqui no site da promoção e pronto!</p>
+          <p>• Já está concorrendo a vale-compras de R$ 1.000.</p>
+          <p className="font-bold text-primary mt-4">Se você comprar com o cartão Fácil, você tem número da sorte em dobro!</p>
+        </div>
+      )
     },
     {
       question: "Como me cadastrar para o sorteio?",
@@ -44,7 +53,7 @@ const FAQ = () => {
     },
     {
       question: "Posso acumular números da sorte?",
-      answer: "Sim! Quanto mais você comprar, mais números da sorte você acumula. Cada R$ 1.000,00 em compras gera um novo número da sorte, aumentando suas chances de ganhar."
+      answer: "Sim! Quanto mais você comprar, mais números da sorte você acumula. Cada R$ 100,00 em compras gera um novo número da sorte, aumentando suas chances de ganhar."
     },
     {
       question: "Preciso guardar os cupons fiscais?",
@@ -69,9 +78,13 @@ const FAQ = () => {
   ];
 
   const filteredFaqs = faqs.filter(
-    (faq) =>
-      faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
+    (faq) => {
+      const answerText = typeof faq.answer === 'string' ? faq.answer : '';
+      return (
+        faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        answerText.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
   );
 
   return (

@@ -8,6 +8,7 @@ import Regulamento from "./pages/Regulamento";
 import Ganhadores from "./pages/Ganhadores";
 import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
+import ByBadge from "./components/ByBadge";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ByBadge />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

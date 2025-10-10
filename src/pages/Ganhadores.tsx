@@ -17,18 +17,23 @@ const Ganhadores = () => {
             <h1 className="text-5xl md:text-6xl font-black text-secondary">
               Ganhadores
             </h1>
-            <p className="text-xl text-primary-foreground font-semibold">
-              Confira quem são os ganhadores da promoção.
-            </p>
           </div>
 
-          <div className="max-w-4xl mx-auto bg-background rounded-3xl p-12 shadow-2xl text-center">
-            <h2 className="text-3xl font-black text-foreground mb-6">
+          <div className="max-w-4xl mx-auto bg-background rounded-3xl p-12 shadow-2xl">
+            <h2 className="text-3xl font-black text-foreground mb-6 text-center">
               Aguarde!
             </h2>
-            <p className="text-lg text-foreground leading-relaxed">
-              O sorteio será realizado em <strong>08/11/2025</strong> e o ganhador será divulgado após auditoria.
-            </p>
+            <div className="text-lg text-foreground leading-relaxed space-y-4">
+              <p>
+                A data do sorteio da Loteria Federal será em <strong>22/11/25</strong>.
+              </p>
+              <p>
+                A data de apuração será em <strong>27/11/25</strong>.
+              </p>
+              <p>
+                Os nomes dos ganhadores serão publicados aqui no site e divulgados também em redes sociais. Também serão comunicados individualmente pela promotora, por meio de telefone e/ou e-mail cadastrados no momento da inscrição, no prazo máximo de 10 (dez) dias contados da apuração.
+              </p>
+            </div>
           </div>
         </div>
       </main>

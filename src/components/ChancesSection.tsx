@@ -26,7 +26,7 @@ const ChancesSection = () => {
                 <img 
                   src={izaCartaoFacil} 
                   alt="Cartão Fácil EPA" 
-                  className="w-48 md:w-64 h-auto object-cover"
+                  className="w-64 md:w-80 h-auto object-cover"
                 />
               </div>
             </div>

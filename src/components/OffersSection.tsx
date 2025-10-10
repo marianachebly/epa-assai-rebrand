@@ -143,7 +143,7 @@ const OffersSection = () => {
                     >
                       <CarouselContent className="-ml-2 md:-ml-4">
                         {bhOffers.map((offer) => (
-                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-[80%] sm:basis-[45%] md:basis-1/3 lg:basis-1/5">
+                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-[70%] sm:basis-[45%] md:basis-1/3 lg:basis-1/5">
                             {renderOfferCard(offer)}
                           </CarouselItem>
                         ))}
@@ -174,7 +174,7 @@ const OffersSection = () => {
                     >
                       <CarouselContent className="-ml-2 md:-ml-4">
                         {riodoceOffers.map((offer) => (
-                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-[80%] sm:basis-[45%] md:basis-1/3 lg:basis-1/5">
+                          <CarouselItem key={offer.id} className="pl-2 md:pl-4 basis-[70%] sm:basis-[45%] md:basis-1/3 lg:basis-1/5">
                             {renderOfferCard(offer)}
                           </CarouselItem>
                         ))}

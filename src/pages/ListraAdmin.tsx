@@ -36,24 +36,33 @@ const ListraAdmin = () => {
 
   const loadContent = () => {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-      try {
-        const data = JSON.parse(stored);
-        setVideoUrl(data.videoUrl || "");
-        setFaqs(data.faqs || []);
-      } catch (e) {
-        console.error("Erro ao carregar conteúdo:", e);
-        loadDefaultContent();
-      }
-    } else {
-      loadDefaultContent();
-    }
-  };
-
-  const loadDefaultContent = () => {
+    
+    // Primeiro carrega o conteúdo padrão do JSON
     import("@/config/content.json").then((module) => {
-      setVideoUrl(module.default.videoUrl);
-      setFaqs(module.default.faqs || []);
+      const defaultData = module.default;
+      
+      if (stored) {
+        try {
+          const storedData = JSON.parse(stored);
+          
+          // Se o JSON padrão tiver mais FAQs que o localStorage, usa o JSON (conteúdo atualizado)
+          if (defaultData.faqs.length > storedData.faqs.length) {
+            console.log("Detectado conteúdo atualizado no JSON, carregando nova versão no admin");
+            setVideoUrl(defaultData.videoUrl);
+            setFaqs(defaultData.faqs || []);
+          } else {
+            setVideoUrl(storedData.videoUrl || "");
+            setFaqs(storedData.faqs || []);
+          }
+        } catch (e) {
+          console.error("Erro ao carregar conteúdo:", e);
+          setVideoUrl(defaultData.videoUrl);
+          setFaqs(defaultData.faqs || []);
+        }
+      } else {
+        setVideoUrl(defaultData.videoUrl);
+        setFaqs(defaultData.faqs || []);
+      }
     });
   };
 

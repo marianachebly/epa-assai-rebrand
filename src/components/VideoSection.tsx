@@ -27,7 +27,7 @@ const VideoSection = () => {
             <img 
               src={videoThumbnail} 
               alt="Aniversário EPA - Meio Milhão" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
             <div className="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/30 transition-colors">
               <div className="bg-background rounded-full w-24 h-24 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">

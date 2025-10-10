@@ -31,7 +31,7 @@ const Footer = () => {
       </section>
 
       {/* Footer Original */}
-      <footer className="bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground py-12">
+      <footer className="bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground py-12 relative">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4">
             <img src={logoRodape} alt="EPA 66 Anos" className="h-20 w-auto mx-auto" />
@@ -42,14 +42,19 @@ const Footer = () => {
               <p>01.928.075/0001-08 | Razão Social: DMA DISTRIBUIDORA S/A</p>
               <p className="mt-2">© 2025 DMA Distribuidora - Todos os direitos reservados.</p>
             </div>
-            
-            {/* Badge By */}
-            <div className="flex items-center justify-center gap-1 mt-6">
-              <span className="text-primary-foreground/70 text-xs font-light">by</span>
-              <img src={logoBy} alt="Logo" className="h-4 w-auto" />
-            </div>
           </div>
         </div>
+        
+        {/* Badge By - Canto inferior esquerdo */}
+        <a 
+          href="https://www.listradigital.com.br" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="absolute bottom-4 left-4 flex items-center gap-1 hover:opacity-80 transition-opacity"
+        >
+          <span className="text-primary-foreground/70 text-xs font-light">by</span>
+          <img src={logoBy} alt="Listra Digital" className="h-4 w-auto" />
+        </a>
       </footer>
     </>
   );

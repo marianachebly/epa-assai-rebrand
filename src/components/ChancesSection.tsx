@@ -1,6 +1,5 @@
 import { Gift } from "lucide-react";
-import izaCartaoFacil from "@/assets/iza_pose_cartao.png";
-import sorte from "@/assets/sorte.png";
+import numeroSorte from "@/assets/numerosorte.png";
 
 const ChancesSection = () => {
   return (
@@ -15,23 +14,19 @@ const ChancesSection = () => {
         <div className="max-w-5xl mx-auto">
           <div className="bg-background rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden">
             <div className="flex flex-col md:flex-row items-center gap-6 max-h-[200px] md:max-h-[180px]">
-              <div className="flex items-center gap-3">
-                <img src={sorte} alt="Sorte" className="w-16 h-16 md:w-20 md:h-20" />
-                <img src={sorte} alt="Sorte" className="w-16 h-16 md:w-20 md:h-20" />
-              </div>
               <div className="flex-1 text-center md:text-left">
                 <h3 className="text-2xl md:text-3xl font-black text-foreground mb-2">
                   Comprou com o Cartão Fácil EPA?
                 </h3>
                 <p className="text-primary font-bold text-xl md:text-2xl">
-                  Ganhe números da sorte em dobro!
+                  Ganhe números da sorte em dobro
                 </p>
               </div>
               <div className="flex-shrink-0 h-[200px] md:h-[180px] overflow-hidden flex items-center">
                 <img 
-                  src={izaCartaoFacil} 
-                  alt="Cartão Fácil EPA" 
-                  className="w-64 md:w-80 h-auto object-cover"
+                  src={numeroSorte} 
+                  alt="Números da sorte em dobro" 
+                  className="w-64 md:w-80 h-auto object-contain"
                 />
               </div>
             </div>

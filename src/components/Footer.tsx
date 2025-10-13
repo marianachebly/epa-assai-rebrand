@@ -4,9 +4,7 @@ import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
-  const whatsappNumber = "5531999926521";
-  const whatsappMessage = "Olá! Tenho dúvidas sobre a promoção EPA 66 anos.";
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = "https://api.whatsapp.com/send?phone=553199926521&text=Ol%C3%A1%2C+gostaria+de+receber+informa%C3%A7%C3%B5es+da+campanha+de+66+anos+do+anivers%C3%A1rio+do+Epa%21&utm_source=LP+campanha&utm_medium=WhatsApp&utm_campaign=Anivers%C3%A1rio+EPA+66+anos&utm_id=66+anos&utm_term=Anivers%C3%A1rio+EPA";
 
   return (
     <>

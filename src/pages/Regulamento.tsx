@@ -24,7 +24,7 @@ const Regulamento = () => {
         
         <div className="text-center mb-8">
           <p className="text-lg font-bold text-primary">
-            CERTIFICADO DE AUTORIZAÇÃO SPA/ME Nº
+            CERTIFICADO DE AUTORIZAÇÃO SPA/ME Nº 04.045112/2025
           </p>
         </div>
         

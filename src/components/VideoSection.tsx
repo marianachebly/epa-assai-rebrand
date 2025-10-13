@@ -14,6 +14,11 @@ const VideoSection = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const { videoUrl } = useAdminContent();
 
+  // Se não houver videoUrl configurado no ADMIN, não renderiza a seção
+  if (!videoUrl) {
+    return null;
+  }
+
   return (
     <section className="py-16 bg-gradient-to-b from-primary to-secondary">
       <div className="container mx-auto px-4">

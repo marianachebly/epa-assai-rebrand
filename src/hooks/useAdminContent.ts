@@ -22,20 +22,8 @@ export const useAdminContent = () => {
     
     if (stored) {
       try {
-        const data = JSON.parse(stored);
-        const defaultData = defaultContent as Content;
-        
-        // Verifica se precisa atualizar: mais FAQs no default
-        const needsUpdate = defaultData.faqs.length > data.faqs.length;
-        
-        if (needsUpdate) {
-          console.log("🔄 Detectado conteúdo atualizado");
-          contentToUse = defaultData;
-          // Limpa o localStorage para forçar reload
-          localStorage.removeItem(STORAGE_KEY);
-        } else {
-          contentToUse = data;
-        }
+        // Sempre usa o conteúdo do localStorage quando existir (prioridade para edições do ADMIN)
+        contentToUse = JSON.parse(stored);
       } catch (e) {
         console.error("Erro ao carregar conteúdo:", e);
         contentToUse = defaultContent as Content;

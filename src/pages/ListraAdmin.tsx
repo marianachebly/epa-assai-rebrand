@@ -43,17 +43,10 @@ const ListraAdmin = () => {
       
       if (stored) {
         try {
+          // Sempre usa o conteúdo editado do localStorage (prioridade para edições do ADMIN)
           const storedData = JSON.parse(stored);
-          
-          // Se o JSON padrão tiver mais FAQs que o localStorage, usa o JSON (conteúdo atualizado)
-          if (defaultData.faqs.length > storedData.faqs.length) {
-            console.log("Detectado conteúdo atualizado no JSON, carregando nova versão no admin");
-            setVideoUrl(defaultData.videoUrl);
-            setFaqs(defaultData.faqs || []);
-          } else {
-            setVideoUrl(storedData.videoUrl || "");
-            setFaqs(storedData.faqs || []);
-          }
+          setVideoUrl(storedData.videoUrl || "");
+          setFaqs(storedData.faqs || []);
         } catch (e) {
           console.error("Erro ao carregar conteúdo:", e);
           setVideoUrl(defaultData.videoUrl);

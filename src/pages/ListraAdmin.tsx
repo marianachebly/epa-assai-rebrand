@@ -37,26 +37,31 @@ const ListraAdmin = () => {
   const loadContent = () => {
     const stored = localStorage.getItem(STORAGE_KEY);
     
-    // Primeiro carrega o conteúdo padrão do JSON
-    import("@/config/content.json").then((module) => {
-      const defaultData = module.default;
-      
-      if (stored) {
-        try {
-          // Sempre usa o conteúdo editado do localStorage (prioridade para edições do ADMIN)
-          const storedData = JSON.parse(stored);
-          setVideoUrl(storedData.videoUrl || "");
-          setFaqs(storedData.faqs || []);
-        } catch (e) {
-          console.error("Erro ao carregar conteúdo:", e);
+    if (stored) {
+      try {
+        // PRIORIDADE ABSOLUTA: Se existe no localStorage, SEMPRE usa ele
+        const storedData = JSON.parse(stored);
+        setVideoUrl(storedData.videoUrl || "");
+        setFaqs(storedData.faqs || []);
+        console.log("✅ ADMIN: Conteúdo carregado do localStorage");
+      } catch (e) {
+        console.error("❌ ADMIN: Erro ao carregar do localStorage:", e);
+        // Só carrega o padrão se houver erro no localStorage
+        import("@/config/content.json").then((module) => {
+          const defaultData = module.default;
           setVideoUrl(defaultData.videoUrl);
           setFaqs(defaultData.faqs || []);
-        }
-      } else {
+        });
+      }
+    } else {
+      // Só usa o content.json se NÃO houver nada no localStorage (primeira vez)
+      import("@/config/content.json").then((module) => {
+        const defaultData = module.default;
         setVideoUrl(defaultData.videoUrl);
         setFaqs(defaultData.faqs || []);
-      }
-    });
+        console.log("ℹ️ ADMIN: Usando conteúdo padrão (primeira vez)");
+      });
+    }
   };
 
   const handleLogin = (e: React.FormEvent) => {

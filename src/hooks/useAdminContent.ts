@@ -22,14 +22,17 @@ export const useAdminContent = () => {
     
     if (stored) {
       try {
-        // Sempre usa o conteúdo do localStorage quando existir (prioridade para edições do ADMIN)
+        // PRIORIDADE ABSOLUTA: Se existe no localStorage, SEMPRE usa ele
         contentToUse = JSON.parse(stored);
+        console.log("✅ Conteúdo carregado do ADMIN (localStorage)");
       } catch (e) {
-        console.error("Erro ao carregar conteúdo:", e);
+        console.error("❌ Erro ao carregar conteúdo do localStorage:", e);
         contentToUse = defaultContent as Content;
       }
     } else {
+      // Só usa o content.json se NÃO houver nada no localStorage (primeira vez)
       contentToUse = defaultContent as Content;
+      console.log("ℹ️ Usando conteúdo padrão (content.json) - primeira vez");
     }
     
     setContent(contentToUse);

@@ -65,7 +65,7 @@ const CountdownBanner = () => {
         </span>
         {currentMessageIndex === 0 && (
           <span className="text-[#f9e103] animate-slide-in-right inline-block">
-            Campanha válida de 13 de Outubro à 15 de Novembro de 2025
+            Campanha válida de 13 de Outubro a 15 de Novembro de 2025
           </span>
         )}
       </div>

@@ -31,9 +31,9 @@ const ParticipationSection = () => {
             <img 
               src={numeroSorteEpa} 
               alt="R$ 100 = 1 número da sorte" 
-              className="w-40 h-auto mx-auto mt-6"
-              width={160}
-              height={60}
+              className="w-48 h-auto mx-auto mt-6"
+              width={192}
+              height={70}
               loading="lazy"
             />
           </div>

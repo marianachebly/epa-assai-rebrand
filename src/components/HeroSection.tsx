@@ -1,6 +1,6 @@
 import { useState, useEffect, memo, lazy, Suspense } from "react";
 import bannerDesktop from "@/assets/aniversarioepa66anos.png";
-import bannerMobile from "@/assets/banner-mobile.webp";
+import bannerMobile from "@/assets/aniversarioepa66anos-2.png";
 
 const FloatingBalloons = lazy(() => import("@/components/FloatingBalloons"));
 const Confetti = lazy(() => import("@/components/Confetti"));

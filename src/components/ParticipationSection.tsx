@@ -1,6 +1,6 @@
 import { ShoppingCart, Ticket, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import numeroSorteEpa from "@/assets/numerosorte-epa.png";
+import numeroSorteEpa from "@/assets/numerosorte-epa.webp";
 const ParticipationSection = () => {
   return (
     <section className="py-16 bg-background">
@@ -34,6 +34,7 @@ const ParticipationSection = () => {
               className="w-48 h-auto mx-auto mt-6"
               width={192}
               height={70}
+              loading="lazy"
             />
           </div>
 

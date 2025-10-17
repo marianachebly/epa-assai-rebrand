@@ -1,5 +1,5 @@
-import bannerAniversario from "@/assets/banner-aniversario66.png";
-import bannerMobile from "@/assets/banner-mobile.png";
+import bannerAniversario from "@/assets/banner-aniversario66.webp";
+import bannerMobile from "@/assets/banner-mobile.webp";
 import { useState, useEffect, memo, lazy, Suspense } from "react";
 
 const FloatingBalloons = lazy(() => import("@/components/FloatingBalloons"));

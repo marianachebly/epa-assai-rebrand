@@ -7,7 +7,7 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import videoThumbnail from "@/assets/video-thumbnail.png";
+import videoThumbnail from "@/assets/video-thumbnail.webp";
 import { useAdminContent } from "@/hooks/useAdminContent";
 
 const VideoSection = () => {
@@ -37,6 +37,7 @@ const VideoSection = () => {
               className="w-full h-full object-contain"
               width={896}
               height={417}
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/30 transition-colors">
               <div className="bg-background rounded-full w-24 h-24 flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">

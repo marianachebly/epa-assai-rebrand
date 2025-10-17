@@ -1,4 +1,6 @@
-const FloatingBalloons = () => {
+import { memo } from "react";
+
+const FloatingBalloons = memo(() => {
   const balloons = [
     { id: 1, left: "8%", top: "20%", delay: "0s", duration: "6s", size: "80px", color: "red" },
     { id: 2, left: "22%", top: "60%", delay: "1s", duration: "7s", size: "70px", color: "red" },
@@ -31,6 +33,8 @@ const FloatingBalloons = () => {
       ))}
     </div>
   );
-};
+});
+
+FloatingBalloons.displayName = "FloatingBalloons";
 
 export default FloatingBalloons;

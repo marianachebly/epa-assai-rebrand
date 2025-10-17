@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 
 interface ConfettiPiece {
   id: number;
@@ -9,14 +9,14 @@ interface ConfettiPiece {
   shape: 'square' | 'circle' | 'triangle';
 }
 
-const Confetti = () => {
+const Confetti = memo(() => {
   const [confetti, setConfetti] = useState<ConfettiPiece[]>([]);
 
   useEffect(() => {
     const colors = ['#e30613', '#ffffff', '#f9e103', '#ffd700', '#ff6b6b', '#4ecdc4'];
     const shapes: ('square' | 'circle' | 'triangle')[] = ['square', 'circle', 'triangle'];
     
-    const pieces: ConfettiPiece[] = Array.from({ length: 50 }, (_, i) => ({
+    const pieces: ConfettiPiece[] = Array.from({ length: 25 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       animationDelay: Math.random() * 5,
@@ -75,6 +75,8 @@ const Confetti = () => {
       ))}
     </div>
   );
-};
+});
+
+Confetti.displayName = "Confetti";
 
 export default Confetti;

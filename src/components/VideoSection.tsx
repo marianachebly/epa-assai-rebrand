@@ -7,7 +7,7 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import videoThumbnail from "@/assets/video-thumbnail.png";
+import videoThumbnail from "@/assets/person-epa.png";
 import { useAdminContent } from "@/hooks/useAdminContent";
 
 const VideoSection = () => {

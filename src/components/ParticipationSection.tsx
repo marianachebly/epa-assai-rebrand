@@ -1,6 +1,6 @@
 import { ShoppingCart, Ticket, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import numeroSorteEpa from "@/assets/sorte.png";
+import numeroSorteEpa from "@/assets/numerosorte-epa.png";
 const ParticipationSection = () => {
   return (
     <section className="py-16 bg-background">
@@ -31,9 +31,9 @@ const ParticipationSection = () => {
             <img 
               src={numeroSorteEpa} 
               alt="R$ 100 = 1 número da sorte" 
-              className="w-48 h-auto mx-auto mt-6"
-              width={192}
-              height={70}
+              className="w-40 h-auto mx-auto mt-6"
+              width={160}
+              height={60}
               loading="lazy"
             />
           </div>

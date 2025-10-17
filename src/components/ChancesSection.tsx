@@ -1,5 +1,5 @@
 import { Gift } from "lucide-react";
-import numeroSorte from "@/assets/sorte.png";
+import numeroSorte from "@/assets/numerosorte.png";
 
 const ChancesSection = () => {
   return (
@@ -22,13 +22,13 @@ const ChancesSection = () => {
                   Ganhe números da sorte em dobro.
                 </p>
               </div>
-              <div className="flex-shrink-0 mt-0 md:mt-0 h-[180px] md:h-[180px] overflow-visible md:overflow-hidden flex items-start md:items-center">
+              <div className="flex-shrink-0">
                 <img 
                   src={numeroSorte} 
                   alt="Números da sorte em dobro" 
-                  className="w-64 md:w-80 h-auto object-contain"
-                  width={320}
-                  height={96}
+                  className="w-48 h-auto object-contain"
+                  width={192}
+                  height={72}
                   loading="lazy"
                 />
               </div>

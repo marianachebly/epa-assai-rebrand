@@ -50,7 +50,7 @@ const OffersSection = () => {
     
     if (cached && cacheTime) {
       const age = Date.now() - parseInt(cacheTime);
-      if (age < 5 * 60 * 1000) { // 5 minutes
+      if (age < 24 * 60 * 60 * 1000) { // 24 hours
         const data = JSON.parse(cached);
         setRiodoceOffers(data.riodoce || []);
         setBhOffers(data.bh || []);

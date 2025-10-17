@@ -44,6 +44,8 @@ const HeroSection = memo(() => {
           src={isMobile ? bannerMobile : bannerAniversario} 
           alt="EPA 66 Anos - Meio Milhão em vales-compra de R$ 1.000" 
           className={isMobile ? "w-full max-w-md h-auto" : "w-full max-w-5xl max-h-[480px] object-cover object-bottom"}
+          width={isMobile ? 400 : 1024}
+          height={isMobile ? 600 : 454}
           loading="eager"
           fetchPriority="high"
         />

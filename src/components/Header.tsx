@@ -56,7 +56,7 @@ const Header = () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
-              <img src={logoEpa} alt="EPA" className="h-12 w-auto" />
+              <img src={logoEpa} alt="EPA" className="h-12 w-auto" width={49} height={48} />
             </Link>
             <div className="hidden md:flex gap-6 text-sm">
               <button onClick={() => handleMenuClick('como-participar')} className="hover:text-secondary transition-colors font-semibold">
@@ -108,7 +108,7 @@ const Header = () => {
                   }}
                   className="block"
                 >
-                  <img src={logoEpa} alt="EPA" className="h-16 w-auto mx-auto mb-4 cursor-pointer hover:opacity-80 transition-opacity" />
+                  <img src={logoEpa} alt="EPA" className="h-16 w-auto mx-auto mb-4 cursor-pointer hover:opacity-80 transition-opacity" width={65} height={64} />
                 </Link>
               </SheetHeader>
               <div className="flex flex-col gap-2 mt-8">

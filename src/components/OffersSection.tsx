@@ -86,6 +86,8 @@ const OffersSection = () => {
             src={offer.image}
             alt={offer.name}
             className="w-[70%] h-[70%] object-contain transition-transform duration-300 group-hover:scale-105"
+            width={129}
+            height={129}
             loading="lazy"
             onError={(e) => {
               e.currentTarget.src = "/placeholder.svg";

@@ -32,7 +32,7 @@ const Footer = () => {
       <footer className="bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground py-12 relative">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4">
-            <img src={logoRodape} alt="EPA 66 Anos" className="h-20 w-auto mx-auto" />
+            <img src={logoRodape} alt="EPA 66 Anos" className="h-20 w-auto mx-auto" width={74} height={80} />
             <p className="text-sm max-w-4xl mx-auto leading-relaxed">
               Esta é uma promoção do EPA Supermercados válida para todas as lojas participantes no período de 13 de Outubro à 15 de Novembro de 2025. Consulte o regulamento completo para mais informações sobre a promoção.
             </p>
@@ -51,7 +51,7 @@ const Footer = () => {
           className="absolute bottom-4 left-4 flex items-center gap-1 hover:opacity-80 transition-opacity"
         >
           <span className="text-primary-foreground/70 text-xs font-light">by</span>
-          <img src={logoBy} alt="Listra Digital" className="h-4 w-auto" />
+          <img src={logoBy} alt="Listra Digital" className="h-4 w-auto" width={60} height={16} />
         </a>
       </footer>
     </>

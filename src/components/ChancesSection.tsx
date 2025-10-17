@@ -27,6 +27,8 @@ const ChancesSection = () => {
                   src={numeroSorte} 
                   alt="Números da sorte em dobro" 
                   className="w-64 md:w-80 h-auto object-contain"
+                  width={320}
+                  height={96}
                 />
               </div>
             </div>

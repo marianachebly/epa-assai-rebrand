@@ -13,7 +13,7 @@ const ChancesSection = () => {
         
         <div className="max-w-5xl mx-auto">
           <div className="bg-background rounded-3xl py-2 px-8 md:p-8 shadow-2xl overflow-hidden">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6 max-h-none md:max-h-[180px]">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
               <div className="flex-1 text-center md:text-left">
                 <h3 className="text-2xl md:text-3xl font-black text-foreground mb-2">
                   Comprou com o Cartão Fácil EPA?
@@ -26,9 +26,9 @@ const ChancesSection = () => {
                 <img 
                   src={numeroSorte} 
                   alt="Números da sorte em dobro" 
-                  className="w-48 h-auto object-contain"
-                  width={192}
-                  height={72}
+                  className="w-64 md:w-96 h-auto object-contain"
+                  width={384}
+                  height={144}
                   loading="lazy"
                 />
               </div>

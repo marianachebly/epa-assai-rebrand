@@ -1,5 +1,5 @@
 import { Gift } from "lucide-react";
-import numeroSorte from "@/assets/numerosorte.webp";
+import numeroSorte from "@/assets/sorte.png";
 
 const ChancesSection = () => {
   return (

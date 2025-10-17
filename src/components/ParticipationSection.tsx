@@ -1,6 +1,6 @@
 import { ShoppingCart, Ticket, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import numeroSorteEpa from "@/assets/numerosorte-epa.webp";
+import numeroSorteEpa from "@/assets/numerosorte-epa.png";
 const ParticipationSection = () => {
   return (
     <section className="py-16 bg-background">

@@ -1,4 +1,4 @@
-import logoRodape from "@/assets/rodape-logo.webp";
+import logoRodape from "@/assets/logo-rodape.png";
 import logoBy from "@/assets/logo-by.png"; // Mantido PNG devido a falha na conversão
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";

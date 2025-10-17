@@ -135,9 +135,93 @@ const ListraAdmin = () => {
     setVideoUrl(embedUrl);
   };
 
+  const handleSaveVideo = () => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      let currentData = stored ? JSON.parse(stored) : {};
+      
+      currentData.videoUrl = videoUrl.trim();
+      
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(currentData));
+      window.dispatchEvent(new Event("content-updated"));
+      
+      toast.success("✅ Vídeo salvo com sucesso!");
+      console.log("💾 Vídeo salvo:", videoUrl.trim());
+    } catch (e) {
+      console.error("Erro ao salvar vídeo:", e);
+      toast.error("Erro ao salvar o vídeo");
+    }
+  };
+
+  const handleClearVideo = () => {
+    if (confirm("Limpar apenas o vídeo? As FAQs não serão afetadas.")) {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        let currentData = stored ? JSON.parse(stored) : {};
+        
+        currentData.videoUrl = "";
+        setVideoUrl("");
+        
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(currentData));
+        window.dispatchEvent(new Event("content-updated"));
+        
+        toast.success("Vídeo limpo!");
+        console.log("🗑️ Vídeo limpo");
+      } catch (e) {
+        console.error("Erro ao limpar vídeo:", e);
+        toast.error("Erro ao limpar o vídeo");
+      }
+    }
+  };
+
+  const handleSaveFaqs = () => {
+    try {
+      const validFaqs = faqs.filter(faq => faq.question.trim() && faq.answer.trim());
+
+      if (validFaqs.length === 0) {
+        toast.error("Adicione pelo menos uma pergunta e resposta válida");
+        return;
+      }
+
+      const stored = localStorage.getItem(STORAGE_KEY);
+      let currentData = stored ? JSON.parse(stored) : {};
+      
+      currentData.faqs = validFaqs;
+      
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(currentData));
+      window.dispatchEvent(new Event("content-updated"));
+      
+      toast.success(`✅ ${validFaqs.length} FAQs salvas com sucesso!`);
+      console.log("💾 FAQs salvas:", validFaqs.length, "itens");
+    } catch (e) {
+      console.error("Erro ao salvar FAQs:", e);
+      toast.error("Erro ao salvar as FAQs");
+    }
+  };
+
+  const handleClearFaqs = () => {
+    if (confirm("Limpar todas as FAQs? O vídeo não será afetado.")) {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        let currentData = stored ? JSON.parse(stored) : {};
+        
+        currentData.faqs = [];
+        setFaqs([]);
+        
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(currentData));
+        window.dispatchEvent(new Event("content-updated"));
+        
+        toast.success("FAQs limpas!");
+        console.log("🗑️ FAQs limpas");
+      } catch (e) {
+        console.error("Erro ao limpar FAQs:", e);
+        toast.error("Erro ao limpar as FAQs");
+      }
+    }
+  };
+
   const handleSave = () => {
     try {
-      // Valida se há FAQs com pergunta e resposta preenchidas
       const validFaqs = faqs.filter(faq => faq.question.trim() && faq.answer.trim());
 
       if (validFaqs.length === 0) {
@@ -151,11 +235,10 @@ const ListraAdmin = () => {
       };
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(content));
-      
-      // Dispara evento customizado para atualizar outros componentes
       window.dispatchEvent(new Event("content-updated"));
       
-      toast.success("Conteúdo salvo com sucesso! As alterações já estão visíveis no site.");
+      toast.success("✅ Tudo salvo com sucesso! Vídeo + FAQs atualizados no site.");
+      console.log("💾 Conteúdo completo salvo");
     } catch (e) {
       console.error("Erro ao salvar:", e);
       toast.error("Erro ao salvar o conteúdo");
@@ -250,22 +333,34 @@ const ListraAdmin = () => {
                 />
               </div>
             )}
+            <div className="flex gap-2 pt-2">
+              <Button onClick={handleSaveVideo} className="flex-1">
+                <Save className="w-4 h-4 mr-2" />
+                Salvar Vídeo
+              </Button>
+              <Button onClick={handleClearVideo} variant="outline" className="flex-1">
+                <Trash2 className="w-4 h-4 mr-2" />
+                Limpar Vídeo
+              </Button>
+            </div>
           </CardContent>
         </Card>
 
         {/* FAQs */}
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap gap-4">
             <div>
               <h2 className="text-2xl font-bold">Perguntas Frequentes</h2>
               <p className="text-sm text-muted-foreground mt-1">
                 Adicione ou edite as perguntas e respostas
               </p>
             </div>
-            <Button onClick={handleAddFaq} variant="outline">
-              <Plus className="w-4 h-4 mr-2" />
-              Adicionar FAQ
-            </Button>
+            <div className="flex gap-2">
+              <Button onClick={handleAddFaq} variant="outline">
+                <Plus className="w-4 h-4 mr-2" />
+                Adicionar FAQ
+              </Button>
+            </div>
           </div>
 
           {faqs.length === 0 ? (
@@ -318,12 +413,25 @@ const ListraAdmin = () => {
               ))}
             </div>
           )}
+          
+          {faqs.length > 0 && (
+            <div className="flex gap-2 pt-2">
+              <Button onClick={handleSaveFaqs} className="flex-1">
+                <Save className="w-4 h-4 mr-2" />
+                Salvar FAQs
+              </Button>
+              <Button onClick={handleClearFaqs} variant="outline" className="flex-1">
+                <Trash2 className="w-4 h-4 mr-2" />
+                Limpar Todas FAQs
+              </Button>
+            </div>
+          )}
         </div>
 
-        {/* Botão Salvar */}
-        <Button onClick={handleSave} size="lg" className="w-full">
+        {/* Botão Salvar Tudo */}
+        <Button onClick={handleSave} size="lg" className="w-full bg-primary">
           <Save className="w-5 h-5 mr-2" />
-          Salvar Alterações
+          Salvar Tudo (Vídeo + FAQs)
         </Button>
       </div>
     </div>

@@ -39,28 +39,23 @@ const ListraAdmin = () => {
     
     if (stored) {
       try {
-        // PRIORIDADE ABSOLUTA: Se existe no localStorage, SEMPRE usa ele
         const storedData = JSON.parse(stored);
+        console.log("📦 ADMIN: Dados do localStorage:", storedData);
+        console.log("🎥 Vídeo carregado:", storedData.videoUrl);
+        console.log("❓ FAQs carregadas:", storedData.faqs?.length || 0, "itens");
+        
         setVideoUrl(storedData.videoUrl || "");
         setFaqs(storedData.faqs || []);
-        console.log("✅ ADMIN: Conteúdo carregado do localStorage");
       } catch (e) {
         console.error("❌ ADMIN: Erro ao carregar do localStorage:", e);
-        // Só carrega o padrão se houver erro no localStorage
-        import("@/config/content.json").then((module) => {
-          const defaultData = module.default;
-          setVideoUrl(defaultData.videoUrl);
-          setFaqs(defaultData.faqs || []);
-        });
+        // Nunca carrega o padrão se houver localStorage corrompido - força o usuário a limpar
+        toast.error("Erro ao carregar dados salvos. Use o botão 'Limpar Cache' para recomeçar.");
       }
     } else {
-      // Só usa o content.json se NÃO houver nada no localStorage (primeira vez)
-      import("@/config/content.json").then((module) => {
-        const defaultData = module.default;
-        setVideoUrl(defaultData.videoUrl);
-        setFaqs(defaultData.faqs || []);
-        console.log("ℹ️ ADMIN: Usando conteúdo padrão (primeira vez)");
-      });
+      // Primeira vez - sem localStorage
+      console.log("🆕 ADMIN: Primeira vez - inicializando vazio");
+      setVideoUrl("");
+      setFaqs([]);
     }
   };
 
@@ -73,6 +68,16 @@ const ListraAdmin = () => {
       toast.success("Login realizado com sucesso!");
     } else {
       toast.error("Senha incorreta!");
+    }
+  };
+
+  const handleClearCache = () => {
+    if (confirm("⚠️ ATENÇÃO! Isso vai apagar TODOS os dados salvos (vídeo e FAQs). Você terá que recadastrá-los. Tem certeza?")) {
+      localStorage.removeItem(STORAGE_KEY);
+      setVideoUrl("");
+      setFaqs([]);
+      toast.success("Cache limpo! Você pode começar a cadastrar do zero.");
+      console.log("🗑️ ADMIN: Cache limpo");
     }
   };
 
@@ -205,12 +210,18 @@ const ListraAdmin = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/10 to-secondary/10 p-4 md:p-8">
       <div className="max-w-4xl mx-auto space-y-6">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap gap-4">
           <h1 className="text-3xl font-black text-primary">Painel Administrativo</h1>
-          <Button variant="outline" onClick={handleLogout}>
-            <LogOut className="w-4 h-4 mr-2" />
-            Sair
-          </Button>
+          <div className="flex gap-2">
+            <Button variant="destructive" onClick={handleClearCache} size="sm">
+              <Trash2 className="w-4 h-4 mr-2" />
+              Limpar Cache
+            </Button>
+            <Button variant="outline" onClick={handleLogout}>
+              <LogOut className="w-4 h-4 mr-2" />
+              Sair
+            </Button>
+          </div>
         </div>
 
         {/* Vídeo */}

@@ -22,17 +22,25 @@ export const useAdminContent = () => {
     
     if (stored) {
       try {
-        // PRIORIDADE ABSOLUTA: Se existe no localStorage, SEMPRE usa ele
         contentToUse = JSON.parse(stored);
-        console.log("✅ Conteúdo carregado do ADMIN (localStorage)");
+        console.log("✅ Site: Conteúdo do ADMIN carregado");
+        console.log("🎥 Vídeo:", contentToUse.videoUrl);
+        console.log("❓ FAQs:", contentToUse.faqs?.length || 0, "itens");
+        
+        // Mostra a primeira FAQ como exemplo para debug
+        if (contentToUse.faqs && contentToUse.faqs[0]) {
+          console.log("📝 Primeira FAQ:", contentToUse.faqs[0].question.substring(0, 50) + "...");
+        }
       } catch (e) {
-        console.error("❌ Erro ao carregar conteúdo do localStorage:", e);
-        contentToUse = defaultContent as Content;
+        console.error("❌ Erro ao carregar do localStorage:", e);
+        // Se houver erro, usa vazio ao invés do padrão
+        contentToUse = { videoUrl: "", faqs: [] };
+        console.log("⚠️ Usando conteúdo vazio por erro");
       }
     } else {
-      // Só usa o content.json se NÃO houver nada no localStorage (primeira vez)
-      contentToUse = defaultContent as Content;
-      console.log("ℹ️ Usando conteúdo padrão (content.json) - primeira vez");
+      // Sem localStorage = conteúdo vazio
+      contentToUse = { videoUrl: "", faqs: [] };
+      console.log("🆕 Site: Nenhum conteúdo cadastrado ainda");
     }
     
     setContent(contentToUse);

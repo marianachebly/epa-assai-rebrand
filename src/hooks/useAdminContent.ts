@@ -33,14 +33,14 @@ export const useAdminContent = () => {
         }
       } catch (e) {
         console.error("❌ Erro ao carregar do localStorage:", e);
-        // Se houver erro, usa vazio ao invés do padrão
-        contentToUse = { videoUrl: "", faqs: [] };
-        console.log("⚠️ Usando conteúdo vazio por erro");
+        // Se houver erro, usa o conteúdo padrão do JSON
+        contentToUse = defaultContent as Content;
+        console.log("⚠️ Usando conteúdo padrão do JSON por erro");
       }
     } else {
-      // Sem localStorage = conteúdo vazio
-      contentToUse = { videoUrl: "", faqs: [] };
-      console.log("🆕 Site: Nenhum conteúdo cadastrado ainda");
+      // Sem localStorage = usa conteúdo padrão do JSON
+      contentToUse = defaultContent as Content;
+      console.log("📄 Site: Usando conteúdo padrão do content.json");
     }
     
     setContent(contentToUse);

@@ -1,5 +1,3 @@
-import bannerAniversario from "@/assets/banner-aniversario66.webp";
-import bannerMobile from "@/assets/banner-mobile.webp";
 import { useState, useEffect, memo, lazy, Suspense } from "react";
 
 const FloatingBalloons = lazy(() => import("@/components/FloatingBalloons"));
@@ -41,7 +39,7 @@ const HeroSection = memo(() => {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10 flex items-end justify-center min-h-[480px] pt-6 pb-0">
         <img 
-          src={isMobile ? bannerMobile : bannerAniversario} 
+          src={isMobile ? "/banner-mobile.webp" : "/banner-aniversario66.webp"} 
           alt="EPA 66 Anos - Meio Milhão em vales-compra de R$ 1.000" 
           className={isMobile ? "w-full max-w-md h-auto" : "w-full max-w-5xl max-h-[480px] object-cover object-bottom"}
           width={isMobile ? 400 : 1024}

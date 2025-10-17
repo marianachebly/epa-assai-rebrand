@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, memo } from "react";
 import { Clock } from "lucide-react";
 
-const CountdownBanner = () => {
+const CountdownBanner = memo(() => {
   const [daysLeft, setDaysLeft] = useState(0);
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
-  const messages = [
+  const messages = useMemo(() => [
     (days: number) => (
       <>
         Você ainda tem <span className="text-lg md:text-xl">{days} DIAS</span> para participar.
@@ -26,10 +26,13 @@ const CountdownBanner = () => {
         A cada R$ 100,00 em compras, você ganha 1 número da sorte! Participe!
       </>
     ),
-  ];
+  ], []);
 
   // Alterna cores entre amarelo e branco
-  const messageColor = currentMessageIndex % 2 === 0 ? "text-white" : "text-[#f9e103]";
+  const messageColor = useMemo(() => 
+    currentMessageIndex % 2 === 0 ? "text-white" : "text-[#f9e103]",
+    [currentMessageIndex]
+  );
 
   useEffect(() => {
     const calculateDays = () => {
@@ -52,7 +55,8 @@ const CountdownBanner = () => {
     }, 7000); // 7000ms = 7 seconds
 
     return () => clearInterval(interval);
-  }, [messages.length]);
+  }, []);
+  
   return (
     <div className="text-white py-3 px-4 md:px-6 text-center font-bold text-sm md:text-base bg-[#e30613] rounded-none flex items-center justify-center gap-2 overflow-hidden">
       {currentMessageIndex === 0 && <Clock className="w-5 h-5 flex-shrink-0" />}
@@ -71,5 +75,8 @@ const CountdownBanner = () => {
       </div>
     </div>
   );
-};
+});
+
+CountdownBanner.displayName = "CountdownBanner";
+
 export default CountdownBanner;

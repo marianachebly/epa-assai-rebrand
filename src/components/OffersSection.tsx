@@ -42,6 +42,25 @@ const OffersSection = () => {
   const [activeTab, setActiveTab] = useState("belohorizonte");
 
   useEffect(() => {
+    // Check cache first (5 minutes)
+    const cacheKey = 'offers_cache';
+    const cacheTimeKey = 'offers_cache_time';
+    const cached = localStorage.getItem(cacheKey);
+    const cacheTime = localStorage.getItem(cacheTimeKey);
+    
+    if (cached && cacheTime) {
+      const age = Date.now() - parseInt(cacheTime);
+      if (age < 5 * 60 * 1000) { // 5 minutes
+        const data = JSON.parse(cached);
+        setRiodoceOffers(data.riodoce || []);
+        setBhOffers(data.bh || []);
+        setRiodoceExpires(data.riodoceExpiry || '');
+        setBhExpires(data.bhExpiry || '');
+        setLoading(false);
+        return;
+      }
+    }
+    
     fetchOffers();
   }, []);
 
@@ -53,16 +72,30 @@ const OffersSection = () => {
         fetch(API_ENDPOINTS.belohorizonte),
       ]);
 
+      let riodoceData: OffersResponse | null = null;
+      let bhData: OffersResponse | null = null;
+
       if (riodoceResponse.ok) {
-        const riodoceData: OffersResponse = await riodoceResponse.json();
+        riodoceData = await riodoceResponse.json();
         setRiodoceOffers(Array.isArray(riodoceData) ? riodoceData : riodoceData.data || []);
         setRiodoceExpires(riodoceData.expires || "");
       }
 
       if (bhResponse.ok) {
-        const bhData: OffersResponse = await bhResponse.json();
+        bhData = await bhResponse.json();
         setBhOffers(Array.isArray(bhData) ? bhData : bhData.data || []);
         setBhExpires(bhData.expires || "");
+      }
+      
+      // Cache the results
+      if (riodoceData && bhData) {
+        localStorage.setItem('offers_cache', JSON.stringify({
+          riodoce: Array.isArray(riodoceData) ? riodoceData : riodoceData.data || [],
+          bh: Array.isArray(bhData) ? bhData : bhData.data || [],
+          riodoceExpiry: riodoceData.expires || '',
+          bhExpiry: bhData.expires || ''
+        }));
+        localStorage.setItem('offers_cache_time', Date.now().toString());
       }
     } catch (error) {
       console.error("Erro ao carregar ofertas:", error);

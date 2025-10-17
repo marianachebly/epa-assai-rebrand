@@ -8,7 +8,7 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import logoEpa from "@/assets/logo-epa-campanha.png";
+import logoEpa from "@/assets/logo-aniversario.png";
 
 const Header = () => {
   const [open, setOpen] = useState(false);

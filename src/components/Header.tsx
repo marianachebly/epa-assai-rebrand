@@ -79,11 +79,6 @@ const Header = () => {
           
           {/* Desktop Buttons */}
           <div className="hidden md:flex gap-3">
-            <Button variant="secondary" size="sm" asChild>
-              <a href="https://supermercadoepa.crescevendas.com/registro" target="_blank" rel="noopener noreferrer">
-                Cadastre-se e concorra
-              </a>
-            </Button>
             <Button variant="default" size="sm" asChild>
               <a href="https://supermercadoepa.crescevendas.com/login" target="_blank" rel="noopener noreferrer">
                 Meus números da sorte
@@ -142,12 +137,7 @@ const Header = () => {
                 >
                   GANHADORES
                 </button>
-                <Button variant="secondary" size="sm" className="mt-4" onClick={() => setOpen(false)} asChild>
-                  <a href="https://supermercadoepa.crescevendas.com/registro" target="_blank" rel="noopener noreferrer">
-                    Cadastre-se e concorra
-                  </a>
-                </Button>
-                <Button variant="default" size="sm" onClick={() => setOpen(false)} asChild>
+                <Button variant="default" size="sm" className="mt-4" onClick={() => setOpen(false)} asChild>
                   <a href="https://supermercadoepa.crescevendas.com/login" target="_blank" rel="noopener noreferrer">
                     Meus números da sorte
                   </a>

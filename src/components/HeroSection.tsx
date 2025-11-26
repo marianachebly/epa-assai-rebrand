@@ -1,6 +1,8 @@
 import { useState, useEffect, memo, lazy, Suspense } from "react";
+import { Link } from "react-router-dom";
 import bannerDesktop from "@/assets/aniversarioepa66anos.png";
 import bannerMobile from "@/assets/banner-mobile.png";
+import { Button } from "@/components/ui/button";
 
 const FloatingBalloons = lazy(() => import("@/components/FloatingBalloons"));
 const Confetti = lazy(() => import("@/components/Confetti"));
@@ -42,24 +44,25 @@ const HeroSection = memo(() => {
       )}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmQwMDAiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00em0wLTEwYzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20"></div>
       
-      {/* Tarja diagonal "Inscrições Encerradas" */}
-      <div className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center" style={{ paddingTop: isMobile ? '80px' : '100px' }}>
-        <div 
-          className="bg-red-600 text-white font-bold py-4 px-8 shadow-2xl"
-          style={{
-            transform: 'rotate(-12deg)',
-            fontSize: isMobile ? '1.5rem' : '2.5rem',
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.3)',
-            border: '3px solid rgba(255, 255, 255, 0.8)',
-            width: isMobile ? '100%' : 'auto',
-            textAlign: 'center',
-            background: 'linear-gradient(135deg, #dc2626 0%, #991b1b 100%)'
-          }}
-        >
-          Inscrições Encerradas
-        </div>
+      {/* Botão "Confira a lista dos ganhadores" */}
+      <div className="absolute inset-0 z-20 flex items-center justify-center" style={{ paddingTop: isMobile ? '80px' : '100px' }}>
+        <Link to="/ganhadores" style={{ transform: 'rotate(-12deg)' }}>
+          <Button 
+            size="lg"
+            className="font-bold py-6 px-8 shadow-2xl hover:scale-105 transition-transform"
+            style={{
+              fontSize: isMobile ? '1.2rem' : '2rem',
+              letterSpacing: '0.05em',
+              textTransform: 'uppercase',
+              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.3)',
+              border: '3px solid rgba(255, 255, 255, 0.8)',
+              background: 'linear-gradient(135deg, #dc2626 0%, #991b1b 100%)',
+              color: 'white'
+            }}
+          >
+            Confira a lista dos ganhadores
+          </Button>
+        </Link>
       </div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10 flex items-end justify-center min-h-[480px] pt-6 pb-0">

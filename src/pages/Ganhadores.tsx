@@ -524,8 +524,8 @@ const Ganhadores = () => {
             <div className="text-center mb-8 space-y-4">
               <h2 className="text-2xl md:text-3xl font-black text-foreground">Parabéns aos ganhadores!</h2>
               <p className="text-sm md:text-base text-foreground/80 max-w-3xl mx-auto">
-                Nossa equipe entrará em contato com todos os ganhadores até o dia 19 de Dezembro de 2025, com as
-                orientações completas para a retirada do prêmio.{" "}
+                Nossa equipe entrará em contato com todos os ganhadores até o dia <bold>19 de Dezembro de 2025,</bold>{" "}
+                com as orientações completas para a retirada do prêmio.{" "}
                 <span className="text-red-600 font-semibold">(Aguardem o nosso contato)</span>
               </p>
             </div>

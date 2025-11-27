@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import CountdownBanner from "@/components/CountdownBanner";
-import HeroSection from "@/components/HeroSection";
+import HeroSectionSimple from "@/components/HeroSectionSimple";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 
@@ -15,7 +15,7 @@ const HomeAlternativa = () => {
     <div className="min-h-screen">
       <Header />
       <CountdownBanner />
-      <HeroSection />
+      <HeroSectionSimple />
       
       {/* Botão Confira os Ganhadores */}
       <section className="py-12 bg-background">
@@ -23,7 +23,7 @@ const HomeAlternativa = () => {
           <Link to="/ganhadores">
             <Button 
               size="lg"
-              className="font-bold py-6 px-12 text-xl shadow-2xl hover:scale-105 transition-transform bg-yellow-400 hover:bg-yellow-500 text-black border-2 border-black"
+              className="font-bold py-6 px-12 text-xl shadow-2xl hover:scale-105 transition-transform bg-yellow-400 hover:bg-yellow-500 text-black"
             >
               Confira os ganhadores
             </Button>
@@ -36,20 +36,6 @@ const HomeAlternativa = () => {
           <OffersSection />
         </div>
       </Suspense>
-
-      {/* Botão Confira o Regulamento */}
-      <section className="py-12 bg-secondary">
-        <div className="container mx-auto px-4 text-center">
-          <Link to="/regulamento">
-            <Button 
-              size="lg"
-              className="font-bold py-6 px-12 text-xl shadow-xl hover:scale-105 transition-transform"
-            >
-              Confira o regulamento
-            </Button>
-          </Link>
-        </div>
-      </section>
 
       <Suspense fallback={<div className="h-96" />}>
         <div id="lojas">

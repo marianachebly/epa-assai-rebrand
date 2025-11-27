@@ -72,15 +72,6 @@ const Header = () => {
             </Button>
             
             <div className="hidden md:flex gap-6 text-sm">
-              <button onClick={() => handleMenuClick('como-participar')} className="hover:text-secondary transition-colors font-semibold">
-                COMO PARTICIPAR
-              </button>
-              <button onClick={() => handleMenuClick('chances')} className="hover:text-secondary transition-colors font-semibold">
-                AUMENTE SUAS CHANCES
-              </button>
-              <button onClick={() => handleMenuClick('lojas')} className="hover:text-secondary transition-colors font-semibold">
-                LOJAS PARTICIPANTES
-              </button>
               <button onClick={() => handleMenuClick('regulamento', '/regulamento')} className="hover:text-secondary transition-colors font-semibold">
                 REGULAMENTO
               </button>
@@ -125,24 +116,6 @@ const Header = () => {
                 </Link>
               </SheetHeader>
               <div className="flex flex-col gap-2 mt-8">
-                <button 
-                  onClick={() => handleMenuClick('como-participar')} 
-                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-1"
-                >
-                  COMO PARTICIPAR
-                </button>
-                <button 
-                  onClick={() => handleMenuClick('chances')} 
-                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-1"
-                >
-                  AUMENTE SUAS CHANCES
-                </button>
-                <button 
-                  onClick={() => handleMenuClick('lojas')} 
-                  className="text-left text-primary hover:text-secondary transition-colors font-semibold py-1"
-                >
-                  LOJAS PARTICIPANTES
-                </button>
                 <button 
                   onClick={() => handleMenuClick('regulamento', '/regulamento')} 
                   className="text-left text-primary hover:text-secondary transition-colors font-semibold py-1"

@@ -523,9 +523,14 @@ const Ganhadores = () => {
           </div>
 
           <div className="max-w-6xl mx-auto bg-background rounded-3xl p-6 md:p-12 shadow-2xl">
-            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-8 text-center">
-              Lista dos Ganhadores
-            </h2>
+            <div className="text-center mb-8 space-y-4">
+              <h2 className="text-2xl md:text-3xl font-black text-foreground">
+                Parabéns aos ganhadores!
+              </h2>
+              <p className="text-sm md:text-base text-foreground/80 max-w-3xl mx-auto">
+                Nossa equipe entrará em contato com todos os ganhadores no prazo de até 7 dias úteis, com as orientações completas para a retirada do prêmio. (Aguardem o nosso contato)
+              </p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {winners.map((winner, index) => (
                 <div 

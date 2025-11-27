@@ -55,7 +55,7 @@ const HeroSection = memo(() => {
               textTransform: 'uppercase',
             }}
           >
-            Confira a lista dos ganhadores
+            Confira os ganhadores
           </Button>
         </Link>
       </div>

@@ -80,6 +80,11 @@ const Header = () => {
           {/* Desktop Buttons */}
           <div className="hidden md:flex gap-3">
             <Button variant="default" size="sm" asChild>
+              <Link to="/ganhadores">
+                Confira os ganhadores
+              </Link>
+            </Button>
+            <Button variant="default" size="sm" asChild>
               <a href="https://supermercadoepa.crescevendas.com/login" target="_blank" rel="noopener noreferrer">
                 Meus números da sorte
               </a>
@@ -138,6 +143,11 @@ const Header = () => {
                   GANHADORES
                 </button>
                 <Button variant="default" size="sm" className="mt-4" onClick={() => setOpen(false)} asChild>
+                  <Link to="/ganhadores">
+                    Confira os ganhadores
+                  </Link>
+                </Button>
+                <Button variant="default" size="sm" onClick={() => setOpen(false)} asChild>
                   <a href="https://supermercadoepa.crescevendas.com/login" target="_blank" rel="noopener noreferrer">
                     Meus números da sorte
                   </a>

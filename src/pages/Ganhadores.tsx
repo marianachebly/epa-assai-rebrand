@@ -502,7 +502,7 @@ const winners = [
   { name: "William de Oliveira", luckyNumber: "36900" },
   { name: "Wilson Vaz da Fonseca", luckyNumber: "34438" },
   { name: "Zélia Gomes Caires da Silva", luckyNumber: "26904" },
-  { name: "Zélia Gomes Caires da Silva", luckyNumber: "59836" }
+  { name: "Zélia Gomes Caires da Silva", luckyNumber: "59836" },
 ];
 
 const Ganhadores = () => {
@@ -513,37 +513,31 @@ const Ganhadores = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       <main className="bg-primary">
         <div className="container mx-auto px-4 py-16">
           <div className="text-center space-y-6 mb-12">
-            <h1 className="text-5xl md:text-6xl font-black text-secondary">
-              Ganhadores
-            </h1>
+            <h1 className="text-5xl md:text-6xl font-black text-secondary">Ganhadores</h1>
           </div>
 
           <div className="max-w-6xl mx-auto bg-background rounded-3xl p-6 md:p-12 shadow-2xl">
             <div className="text-center mb-8 space-y-4">
-              <h2 className="text-2xl md:text-3xl font-black text-foreground">
-                Parabéns aos ganhadores!
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-black text-foreground">Parabéns aos ganhadores!</h2>
               <p className="text-sm md:text-base text-foreground/80 max-w-3xl mx-auto">
-                Nossa equipe entrará em contato com todos os ganhadores no prazo de até 7 dias úteis, com as orientações completas para a retirada do prêmio. <span className="text-red-600 font-semibold">(Aguardem o nosso contato)</span>
+                Nossa equipe entrará em contato com todos os ganhadores até o dia 19 de Dezembro de 2025, com as
+                orientações completas para a retirada do prêmio.{" "}
+                <span className="text-red-600 font-semibold">(Aguardem o nosso contato)</span>
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {winners.map((winner, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="bg-primary/5 border border-primary/20 rounded-lg p-3 hover:bg-primary/10 transition-colors"
                 >
                   <div className="flex justify-between items-start gap-2">
-                    <p className="text-sm font-semibold text-foreground flex-1 break-words">
-                      {winner.name}
-                    </p>
-                    <p className="text-sm font-bold text-primary whitespace-nowrap">
-                      #{winner.luckyNumber}
-                    </p>
+                    <p className="text-sm font-semibold text-foreground flex-1 break-words">{winner.name}</p>
+                    <p className="text-sm font-bold text-primary whitespace-nowrap">#{winner.luckyNumber}</p>
                   </div>
                 </div>
               ))}
@@ -551,7 +545,7 @@ const Ganhadores = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );

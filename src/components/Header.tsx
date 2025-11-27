@@ -79,7 +79,7 @@ const Header = () => {
           
           {/* Desktop Buttons */}
           <div className="hidden md:flex gap-3">
-            <Button variant="default" size="sm" asChild>
+            <Button variant="default" size="sm" className="bg-yellow-400 hover:bg-yellow-500 text-black" asChild>
               <Link to="/ganhadores">
                 Confira os ganhadores
               </Link>
@@ -142,7 +142,7 @@ const Header = () => {
                 >
                   GANHADORES
                 </button>
-                <Button variant="default" size="sm" className="mt-4" onClick={() => setOpen(false)} asChild>
+                <Button variant="default" size="sm" className="mt-4 bg-yellow-400 hover:bg-yellow-500 text-black" onClick={() => setOpen(false)} asChild>
                   <Link to="/ganhadores">
                     Confira os ganhadores
                   </Link>

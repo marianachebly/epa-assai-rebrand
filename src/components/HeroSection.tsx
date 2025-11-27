@@ -49,7 +49,7 @@ const HeroSection = memo(() => {
         <Link to="/ganhadores">
           <Button 
             size="lg"
-            className="font-bold py-4 px-8 shadow-2xl hover:scale-105 transition-transform bg-red-600 hover:bg-red-700 text-white border-2 border-white"
+            className="font-bold py-4 px-8 shadow-2xl hover:scale-105 transition-transform bg-yellow-400 hover:bg-yellow-500 text-black border-2 border-black"
             style={{
               fontSize: isMobile ? '1rem' : '1.5rem',
               textTransform: 'uppercase',

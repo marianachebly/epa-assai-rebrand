@@ -528,7 +528,7 @@ const Ganhadores = () => {
                 Parabéns aos ganhadores!
               </h2>
               <p className="text-sm md:text-base text-foreground/80 max-w-3xl mx-auto">
-                Nossa equipe entrará em contato com todos os ganhadores no prazo de até 7 dias úteis, com as orientações completas para a retirada do prêmio. (Aguardem o nosso contato)
+                Nossa equipe entrará em contato com todos os ganhadores no prazo de até 7 dias úteis, com as orientações completas para a retirada do prêmio. <span className="text-red-600 font-semibold">(Aguardem o nosso contato)</span>
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">

@@ -49,7 +49,7 @@ const Header = () => {
     <header className="bg-background text-primary py-4 sticky top-0 z-50 shadow-md">
       <div className="container mx-auto px-4 md:px-6">
         <nav className="flex items-center justify-between">
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-4 md:gap-8">
             <Link 
               to="/" 
               onClick={() => {
@@ -58,6 +58,19 @@ const Header = () => {
             >
               <img src={logoEpa} alt="EPA" className="h-12 w-auto" width={49} height={48} />
             </Link>
+            
+            {/* Botão Mobile - Ganhadores */}
+            <Button 
+              variant="default" 
+              size="sm" 
+              className="md:hidden bg-yellow-400 hover:bg-yellow-500 text-black text-xs px-3 py-2" 
+              asChild
+            >
+              <Link to="/ganhadores">
+                Confira os ganhadores
+              </Link>
+            </Button>
+            
             <div className="hidden md:flex gap-6 text-sm">
               <button onClick={() => handleMenuClick('como-participar')} className="hover:text-secondary transition-colors font-semibold">
                 COMO PARTICIPAR

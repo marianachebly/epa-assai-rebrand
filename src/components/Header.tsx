@@ -88,15 +88,15 @@ const Header = () => {
                 Confira os ganhadores
               </Link>
             </Button>
+            <Button variant="default" size="sm" asChild>
+              <a href="https://supermercadoepa.crescevendas.com/login" target="_blank" rel="noopener noreferrer">
+                Meus números da sorte
+              </a>
+            </Button>
             <Button variant="default" size="sm" className="bg-green-500 hover:bg-green-600 text-white" asChild>
               <a href="https://api.whatsapp.com/send?phone=5531997838433&text=Ol%C3%A1%2C+gostaria+de+receber+informa%C3%A7%C3%B5es+da+campanha+de+66+anos+do+anivers%C3%A1rio+do+Epa%21&utm_source=LP+campanha&utm_medium=WhatsApp&utm_campaign=Anivers%C3%A1rio+EPA+66+anos&utm_id=66+anos&utm_term=Anivers%C3%A1rio+EPA" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-4 h-4 mr-1" />
                 Suporte
-              </a>
-            </Button>
-            <Button variant="default" size="sm" asChild>
-              <a href="https://supermercadoepa.crescevendas.com/login" target="_blank" rel="noopener noreferrer">
-                Meus números da sorte
               </a>
             </Button>
           </div>
@@ -139,15 +139,15 @@ const Header = () => {
                     Confira os ganhadores
                   </Link>
                 </Button>
+                <Button variant="default" size="sm" onClick={() => setOpen(false)} asChild>
+                  <a href="https://supermercadoepa.crescevendas.com/login" target="_blank" rel="noopener noreferrer">
+                    Meus números da sorte
+                  </a>
+                </Button>
                 <Button variant="default" size="sm" className="bg-green-500 hover:bg-green-600 text-white" onClick={() => setOpen(false)} asChild>
                   <a href="https://api.whatsapp.com/send?phone=5531997838433&text=Ol%C3%A1%2C+gostaria+de+receber+informa%C3%A7%C3%B5es+da+campanha+de+66+anos+do+anivers%C3%A1rio+do+Epa%21&utm_source=LP+campanha&utm_medium=WhatsApp&utm_campaign=Anivers%C3%A1rio+EPA+66+anos&utm_id=66+anos&utm_term=Anivers%C3%A1rio+EPA" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-4 h-4 mr-1" />
                     Suporte
-                  </a>
-                </Button>
-                <Button variant="default" size="sm" onClick={() => setOpen(false)} asChild>
-                  <a href="https://supermercadoepa.crescevendas.com/login" target="_blank" rel="noopener noreferrer">
-                    Meus números da sorte
                   </a>
                 </Button>
               </div>
